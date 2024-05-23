@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Laptop",
+      "price": 50000,
+      "category": "Electronics"
+    },
+    {
+      "id": "53e7",
+      "name": "sai",
+      "image": "https://placehold.co/600x400",
+      "brand": "s",
+      "category": "t-shirt",
+      "gender": "male",
+      "price": "500"
+    },
+    {
+      "id": "9760",
+      "name": "sandle",
+      "image": "https://placehold.co/400x400",
+      "brand": "nike",
+      "category": "shoes",
+      "gender": "male",
+      "price": 1000
+    }
+  ]
+}
