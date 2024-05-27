@@ -1,28 +1,184 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "Laptop",
-      "price": 50000,
-      "category": "Electronics"
-    },
-    {
-      "id": "53e7",
-      "name": "sai",
-      "image": "https://placehold.co/600x400",
-      "brand": "s",
-      "category": "t-shirt",
-      "gender": "male",
-      "price": "500"
-    },
-    {
-      "id": "9760",
-      "name": "sandle",
+      "id": 1,
+      "name": "Slim Fit Jeans",
       "image": "https://placehold.co/400x400",
-      "brand": "nike",
-      "category": "shoes",
-      "gender": "male",
-      "price": 1000
+      "brand": "Nike",
+      "price": 49.99,
+      "category": "Jeans",
+      "gender": "Male"
+    },
+    {
+      "id": 2,
+      "name": "Classic T-Shirt",
+      "image": "https://placehold.co/400x400",
+      "brand": "Puma",
+      "price": 19.99,
+      "category": "T-Shirts",
+      "gender": "Female"
+    },
+    {
+      "id": 3,
+      "name": "Running Shoes",
+      "image": "https://placehold.co/400x400",
+      "brand": "Nike",
+      "price": 59.99,
+      "category": "Shoes",
+      "gender": "Kids"
+    },
+    {
+      "id": 4,
+      "name": "Straight Fit Jeans",
+      "image": "https://placehold.co/400x400",
+      "brand": "Puma",
+      "price": 39.99,
+      "category": "Jeans",
+      "gender": "Male"
+    },
+    {
+      "id": 5,
+      "name": "V-Neck T-Shirt",
+      "image": "https://placehold.co/400x400",
+      "brand": "Nike",
+      "price": 24.99,
+      "category": "T-Shirts",
+      "gender": "Female"
+    },
+    {
+      "id": 6,
+      "name": "Basketball Shoes",
+      "image": "https://placehold.co/400x400",
+      "brand": "Puma",
+      "price": 89.99,
+      "category": "Shoes",
+      "gender": "Male"
+    },
+    {
+      "id": 7,
+      "name": "Skinny Jeans",
+      "image": "https://placehold.co/400x400",
+      "brand": "Nike",
+      "price": 44.99,
+      "category": "Jeans",
+      "gender": "Female"
+    },
+    {
+      "id": 8,
+      "name": "Graphic T-Shirt",
+      "image": "https://placehold.co/400x400",
+      "brand": "Puma",
+      "price": 29.99,
+      "category": "T-Shirts",
+      "gender": "Kids"
+    },
+    {
+      "id": 9,
+      "name": "Casual Shoes",
+      "image": "https://placehold.co/400x400",
+      "brand": "Nike",
+      "price": 54.99,
+      "category": "Shoes",
+      "gender": "Female"
+    },
+    {
+      "id": 10,
+      "name": "Bootcut Jeans",
+      "image": "https://placehold.co/400x400",
+      "brand": "Puma",
+      "price": 49.99,
+      "category": "Jeans",
+      "gender": "Female"
+    },
+    {
+      "id": 11,
+      "name": "Crew Neck T-Shirt",
+      "image": "https://placehold.co/400x400",
+      "brand": "Nike",
+      "price": 21.99,
+      "category": "T-Shirts",
+      "gender": "Male"
+    },
+    {
+      "id": 12,
+      "name": "Training Shoes",
+      "image": "https://placehold.co/400x400",
+      "brand": "Puma",
+      "price": 64.99,
+      "category": "Shoes",
+      "gender": "Kids"
+    },
+    {
+      "id": 13,
+      "name": "Relaxed Fit Jeans",
+      "image": "https://placehold.co/400x400",
+      "brand": "Nike",
+      "price": 59.99,
+      "category": "Jeans",
+      "gender": "Male"
+    },
+    {
+      "id": 14,
+      "name": "Long Sleeve T-Shirt",
+      "image": "https://placehold.co/400x400",
+      "brand": "Puma",
+      "price": 34.99,
+      "category": "T-Shirts",
+      "gender": "Female"
+    },
+    {
+      "id": 15,
+      "name": "Hiking Shoes",
+      "image": "https://placehold.co/400x400",
+      "brand": "Nike",
+      "price": 79.99,
+      "category": "Shoes",
+      "gender": "Male"
+    },
+    {
+      "id": 16,
+      "name": "Distressed Jeans",
+      "image": "https://placehold.co/400x400",
+      "brand": "Puma",
+      "price": 69.99,
+      "category": "Jeans",
+      "gender": "Female"
+    },
+    {
+      "id": 17,
+      "name": "Polo T-Shirt",
+      "image": "https://placehold.co/400x400",
+      "brand": "Nike",
+      "price": 49.99,
+      "category": "T-Shirts",
+      "gender": "Male"
+    },
+    {
+      "id": 18,
+      "name": "Soccer Shoes",
+      "image": "https://placehold.co/400x400",
+      "brand": "Puma",
+      "price": 39.99,
+      "category": "Shoes",
+      "gender": "Kids"
+    },
+    {
+      "id": 19,
+      "name": "High Waist Jeans",
+      "image": "https://placehold.co/400x400",
+      "brand": "Nike",
+      "price": 54.99,
+      "category": "Jeans",
+      "gender": "Female"
+    },
+    {
+      "id": 20,
+      "name": "Sleeveless T-Shirt",
+      "image": "https://placehold.co/400x400",
+      "brand": "Puma",
+      "price": 14.99,
+      "category": "T-Shirts",
+      "gender": "Kids"
     }
   ]
 }
