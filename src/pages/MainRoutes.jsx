@@ -5,6 +5,7 @@ import Admin from "./Admin";
 import Login from "./Login";
 import PrivateRoute from "./PrivateRoute";
 import EditPage from "./EditPage";
+import ProductDetails from "../components/ProductDetails";
 
 function MainRoutes() {
   return (
@@ -29,6 +30,7 @@ function MainRoutes() {
           }
         />
         <Route path="*" element={<h3>404 Page not found</h3>} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
     </div>
   );

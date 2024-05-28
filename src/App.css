@@ -11,4 +11,22 @@
   color: #333;
 }
 
+.active {
+  font-weight: bold;
+  border-bottom: 2px solid red; /* Or any color you prefer */
+}
 
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black; /* Default color for links */
+}

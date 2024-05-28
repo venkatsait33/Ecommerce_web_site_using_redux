@@ -24,7 +24,7 @@ function Login() {
 
     // we send the data to the login action to fetch the user data and login the user by using the dispatch hook
     dispatch(login(userData)).then(() => {
-      navigate(location.state);
+      navigate("/");
     });
     setEmail("");
     setPassword("");

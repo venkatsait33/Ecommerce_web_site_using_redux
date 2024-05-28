@@ -8,10 +8,12 @@ const SideBar = () => {
   //in this we  retrieve stored, the current search params in the searchParams state and  the data when we refresh the page the search params will retrieved and stored in a array.
   const initialGender = searchParams.getAll("gender") || [];
   const initialCategory = searchParams.getAll("category") || [];
+  const initialOrder = searchParams.get("order");
 
   // in this compare the clicked data and stored in the searchParams state and stored in a array. if there is no data it will be reset.
   const [gender, setGender] = useState(initialGender || []);
   const [category, setCategory] = useState(initialCategory || []);
+  const [order, setOrder] = useState(initialOrder || "");
   const handleGender = (e) => {
     console.log(e.target.value);
     const { value } = e.target;
@@ -39,13 +41,20 @@ const SideBar = () => {
     setCategory(newCategory);
   };
 
+  const handleSort = (e) => {
+    const { value } = e.target;
+    console.log(value);
+    setOrder(value);
+  };
+
   useEffect(() => {
     let params = {
       gender,
       category,
     };
+    order && (params.order = order);
     setSearchParams(params);
-  }, [gender, category]);
+  }, [gender, category,order]);
   console.log(category, gender);
   return (
     <div className="p-1 mx-auto mt-2 rounded-md shadow bg-inherit s">
@@ -77,14 +86,14 @@ const SideBar = () => {
         </span>
         <span className="flex items-center justify-between ">
           {" "}
-          <label htmlFor="kids">Kids</label>
+          <label htmlFor="kid">Kid</label>
           <input
             type="checkbox"
-            id="kids"
-            name="kids"
-            value="kids"
+            id="kid"
+            name="kid"
+            value="kid"
             onChange={handleGender}
-            checked={gender.includes("kids")}
+            checked={gender.includes("kid")}
           />
         </span>
       </div>
@@ -128,15 +137,28 @@ const SideBar = () => {
         </span>
       </div>
       <h3 className="font-medium text-center">Sort by price</h3>
-      <div className="flex flex-col gap-2 p-3 mb-2 border border-gray-300 border-solid rounded shadow-sm">
+      <div
+        className="flex flex-col gap-2 p-3 mb-2 border border-gray-300 border-solid rounded shadow-sm"
+        onChange={handleSort}
+      >
         <span className="flex items-center justify-between ">
           <label htmlFor="">Ascending</label>
-          <input type="radio" name="order" />
+          <input
+            type="radio"
+            name="order"
+            value={"asc"}
+            defaultChecked={order === "asc"}
+          />
         </span>
 
         <span className="flex items-center justify-between ">
           <label htmlFor="">Descending</label>
-          <input type="radio" name="order" />
+          <input
+            type="radio"
+            name="order"
+            value={"desc"}
+            defaultChecked={order === "desc"}
+          />
         </span>
       </div>
     </div>

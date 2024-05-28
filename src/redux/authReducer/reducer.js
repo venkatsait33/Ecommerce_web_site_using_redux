@@ -1,4 +1,9 @@
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "../actionTypes";
+import {
+  LOGIN_FAILURE,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGOUT,
+} from "../actionTypes";
 
 const initialState = {
   isAuth: false,
@@ -11,7 +16,7 @@ const initialState = {
 export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case LOGIN_REQUEST:
-      return { ...state, isLoading: true, isError:false };
+      return { ...state, isLoading: true, isError: false };
     case LOGIN_SUCCESS:
       return {
         ...state,
@@ -28,6 +33,14 @@ export const reducer = (state = initialState, { type, payload }) => {
         isAuth: false,
         errorMessage: payload,
       };
+    case LOGOUT:
+      return {
+        ...state,
+        isAuth: false,
+        isError: false,
+      };
+    
+ 
 
     default:
       return state;
