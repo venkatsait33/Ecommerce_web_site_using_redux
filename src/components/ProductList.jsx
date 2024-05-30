@@ -11,7 +11,7 @@ function ProductList() {
   const products = useSelector((store) => store.productReducer.products);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  console.log(products);
+  //console.log(products);
   const location = useLocation();
 
   const object = {
@@ -30,24 +30,22 @@ function ProductList() {
   if (!Array.isArray(products)) {
     return <div>Loading...</div>;
   }
-  useEffect(() => {
+  {
+    /*  useEffect(() => {
     dispatch(fetchProducts(currentPage, itemsPerPage));
   }, [dispatch, currentPage]);
-  const totalPages = Math.ceil(10 / itemsPerPage);
+const totalPages = Math.ceil(10 / itemsPerPage);*/
+  }
 
   return (
-    <div className="grid grid-cols-2 tablet:grid-cols-3 items-center justify-center w-[83%] gap-3 p-5 mx-auto bg-white rounded-lg shadow-lg h-full">
+    <div className=" grid ml-5 items-center justify-center w-[95%] grid-cols-2 gap-3 bg-white tablet:grid-cols-3 laptop:grid-cols-4 dark:bg-gray-900">
       {/* we use and operator to show that if the data is passed from the server or not. if the data is not present it will shows the blank products */}
       {products &&
         products.map((element) => {
-          return <ProductCard key={element.id} {...element} />;
+          return (
+            <ProductCard key={element.id} {...element} showButtons={true} />
+          );
         })}
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
-      ;
     </div>
   );
 }

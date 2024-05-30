@@ -15,7 +15,7 @@ export const addProduct = (newProduct) => (dispatch) => {
   axios
     .post("http://localhost:3001/products", newProduct)
     .then((res) => {
-      console.log(res.data);
+     // console.log(res.data);
       dispatch({ type: POST_PRODUCT_SUCCESS, payload: res.data });
     })
     .catch((error) => {
@@ -29,7 +29,7 @@ export const getProducts = (object) => (dispatch) => {
   axios
     .get("http://localhost:3001/products", object)
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data });
     })
     .catch((error) => {
@@ -48,7 +48,7 @@ export const deleteProduct = (id) => (dispatch) => {
   axios
     .delete(`http://localhost:3001/products/${id}`)
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       dispatch({ type: DELETE_PRODUCT_SUCCESS, payload });
     })
     .catch((error) => {
@@ -62,7 +62,7 @@ export const editProduct = (id, data) => (dispatch) => {
   axios
     .patch(`http://localhost:3001/products/${id}`, data)
     .then((response) => {
-      console.log(response.data);
+      //console.log(response.data);
 
       dispatch({ type: EDIT_PRODUCT_SUCCESS });
     })
@@ -77,7 +77,7 @@ export const fetchProductDetails = (id) => (dispatch) => {
   axios
     .get(`http://localhost:3001/products/${id}`)
     .then((response) => {
-      console.log(response.data);
+      //console.log(response.data);
 
       dispatch({ type: FETCH_PRODUCT_DETAILS, payload: response.data });
     })
@@ -94,12 +94,12 @@ export const fetchProducts =
       .get(`http://localhost:3001/products?_page=${page}&_limit=${limit}`)
 
       .then((response) => {
-        console.log(response.data);
+        //console.log(response.data);
 
         dispatch({ type: FETCH_PRODUCTS, payload: response.data });
       })
       .catch((error) => {
-        console.log(error.message);
+        //console.log(error.message);
         dispatch({ type: PRODUCT_FAILURE, payload: error.message });
       });
   };

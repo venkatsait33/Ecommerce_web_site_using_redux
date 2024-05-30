@@ -61,7 +61,7 @@
       "category": "t-shirt",
       "gender": "male",
       "price": 638,
-      "id": 21
+      "id": 27
     },
     {
       "name": "JEAN TOPS",
@@ -70,10 +70,10 @@
       "category": "",
       "gender": "",
       "price": "",
-      "id": 22
+      "id": 28
     },
-     {
-      "id": 19,
+    {
+      "id": 29,
       "name": "dress",
       "image": "http://dummyimage.com/178x100.png/ff4444/ffffff",
       "brand": "Nike",
@@ -88,7 +88,7 @@
       "category": "jeans",
       "gender": "male",
       "price": 808,
-      "id": 20
+      "id": 31
     },
     {
       "name": "polo t-shirt",
@@ -97,7 +97,7 @@
       "category": "t-shirt",
       "gender": "male",
       "price": 638,
-      "id": 21
+      "id": 32
     },
     {
       "name": "JEAN TOPS",
@@ -106,7 +106,16 @@
       "category": "",
       "gender": "",
       "price": "",
-      "id": 22
+      "id": 33
+    },
+    {
+      "name": "men shorts",
+      "image": "https://m.media-amazon.com/images/I/81jfIa1pvXL._AC_UL480_FMwebp_QL65_.jpg",
+      "brand": "puma",
+      "category": "shorts",
+      "gender": "male",
+      "price": 899,
+      "id": 34
     }
   ]
 }

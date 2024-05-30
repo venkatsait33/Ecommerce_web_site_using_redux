@@ -36,7 +36,7 @@ function Admin() {
         className="flex flex-col gap-3 justify-center items-center p-3 w-[90%] mx-auto"
         onSubmit={handleSubmit}
       >
-        <h1 className="text-center text-xl font-bold mt-2">Add Product</h1>
+        <h1 className="mt-2 text-xl font-bold text-center">Add Product</h1>
         <input
           type="text"
           placeholder="product Name"
@@ -82,6 +82,7 @@ function Admin() {
           <option value="t-shirt">t-shirt</option>
           <option value="jeans">jeans</option>
           <option value="shoes">shoes</option>
+          <option value="shorts">shorts</option>
         </select>
 
         <select

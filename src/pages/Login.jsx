@@ -14,7 +14,7 @@ function Login() {
 
   const auth = useSelector((store) => store.authReducer.isAuth);
   const error = useSelector((store) => store.authReducer.isError);
-  console.log(error);
+  //console.log(error);
 
   const handleLogin = () => {
     let userData = {
@@ -32,7 +32,7 @@ function Login() {
 
   return (
     <div
-      className="w-[70%] p-3 border-[1px]border-solid mx-auto bg-slate-300 rounded-md shadow-sm mt-2 flex flex-col gap-5 items-center justify-center h-[300px] "
+      className="w-[50%] p-2 border-[1px] border-solid mx-auto bg-slate-300 rounded-md shadow-sm flex flex-col gap-5 items-center justify-center h-[350px]  "
       auth={auth}
       error={error}
     >

@@ -15,7 +15,7 @@ const SideBar = () => {
   const [category, setCategory] = useState(initialCategory || []);
   const [order, setOrder] = useState(initialOrder || "");
   const handleGender = (e) => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     const { value } = e.target;
     let newGender = [...gender];
     {
@@ -30,7 +30,7 @@ const SideBar = () => {
     setGender(newGender);
   };
   const handleCategory = (e) => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     const { value } = e.target;
     let newCategory = [...category];
     if (newCategory.includes(value)) {
@@ -54,14 +54,18 @@ const SideBar = () => {
     };
     order && (params.order = order);
     setSearchParams(params);
-  }, [gender, category,order]);
-  console.log(category, gender);
+  }, [gender, category, order]);
+  //console.log(category, gender);
   return (
-    <div className="p-1 mx-auto mt-2 rounded-md shadow bg-inherit s">
-      <h3 className="font-medium text-center">Filter by Gender</h3>
-      <div className="flex flex-col gap-2 p-3 mb-2 border border-gray-300 border-solid rounded shadow-sm">
+    <div className="p-4 mx-auto rounded-md shadow  max-[668px]:hidden dark:bg-gray-900 bg-white z-0 ">
+      <h3 className="font-medium text-center dark:text-white">
+        Filter by Gender
+      </h3>
+      <div className="flex flex-col gap-2 p-3 mb-2 border border-gray-300 border-solid rounded shadow-sm ">
         <span className="flex items-center justify-between">
-          <label htmlFor="male">Male</label>
+          <label htmlFor="male" className="dark:text-white">
+            Male
+          </label>
           <input
             type="checkbox"
             id="male"
@@ -74,7 +78,9 @@ const SideBar = () => {
 
         <span className="flex items-center justify-between ">
           {" "}
-          <label htmlFor="female">Female</label>
+          <label htmlFor="female" className="dark:text-white">
+            Female
+          </label>
           <input
             type="checkbox"
             id="female"
@@ -86,7 +92,9 @@ const SideBar = () => {
         </span>
         <span className="flex items-center justify-between ">
           {" "}
-          <label htmlFor="kid">Kid</label>
+          <label htmlFor="kid" className="dark:text-white">
+            Kid
+          </label>
           <input
             type="checkbox"
             id="kid"
@@ -97,10 +105,14 @@ const SideBar = () => {
           />
         </span>
       </div>
-      <h3 className="font-medium text-center">Filter by Category</h3>
-      <div className="flex flex-col gap-2 p-3 mb-2 border border-gray-300 border-solid rounded shadow-sm">
+      <h3 className="font-medium text-center dark:text-white">
+        Filter by Category
+      </h3>
+      <div className="flex flex-col gap-2 p-3 mb-2 border border-gray-300 border-solid rounded shadow-sm ">
         <span className="flex items-center justify-between">
-          <label htmlFor="t-shirt">t-shirt</label>
+          <label htmlFor="t-shirt" className="dark:text-white">
+            t-shirt
+          </label>
           <input
             type="checkbox"
             id="t-shirt"
@@ -113,7 +125,9 @@ const SideBar = () => {
 
         <span className="flex items-center justify-between ">
           {" "}
-          <label htmlFor="jeans">jeans</label>
+          <label htmlFor="jeans" className="dark:text-white">
+            jeans
+          </label>
           <input
             type="checkbox"
             id="jeans"
@@ -125,7 +139,9 @@ const SideBar = () => {
         </span>
         <span className="flex items-center justify-between ">
           {" "}
-          <label htmlFor="shoes">shoes</label>
+          <label htmlFor="shoes" className="dark:text-white">
+            shoes
+          </label>
           <input
             type="checkbox"
             id="shoes"
@@ -135,14 +151,30 @@ const SideBar = () => {
             checked={category.includes("shoes")}
           />
         </span>
+        <span className="flex items-center justify-between ">
+          {" "}
+          <label htmlFor="shoes" className="dark:text-white">
+            shorts
+          </label>
+          <input
+            type="checkbox"
+            id="shorts"
+            name="shorts"
+            value="shorts"
+            onChange={handleCategory}
+            checked={category.includes("shorts")}
+          />
+        </span>
       </div>
-      <h3 className="font-medium text-center">Sort by price</h3>
+      <h3 className="font-medium text-center dark:text-white">Sort by price</h3>
       <div
         className="flex flex-col gap-2 p-3 mb-2 border border-gray-300 border-solid rounded shadow-sm"
         onChange={handleSort}
       >
         <span className="flex items-center justify-between ">
-          <label htmlFor="">Ascending</label>
+          <label htmlFor="" className="dark:text-white">
+            Ascending
+          </label>
           <input
             type="radio"
             name="order"
@@ -152,7 +184,9 @@ const SideBar = () => {
         </span>
 
         <span className="flex items-center justify-between ">
-          <label htmlFor="">Descending</label>
+          <label htmlFor="" className="dark:text-white">
+            Descending {""}
+          </label>
           <input
             type="radio"
             name="order"

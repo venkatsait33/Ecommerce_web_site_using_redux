@@ -6,12 +6,14 @@ import Login from "./Login";
 import PrivateRoute from "./PrivateRoute";
 import EditPage from "./EditPage";
 import ProductDetails from "../components/ProductDetails";
+import Layout from "./Layout";
 
 function MainRoutes() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Layout />} />
+        <Route path="/home" element={<HomePage />} />
         <Route
           path="/add-product"
           element={
