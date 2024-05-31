@@ -1,8 +1,6 @@
 import "./App.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import Admin from "./pages/Admin";
-import Layout from "./pages/Layout";
 import MainRoutes from "./pages/MainRoutes";
 
 function App() {

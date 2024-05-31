@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       <div className="flex p-2 border-t-2 dark:bg-gray-900">
-        <div className="flex-1">
+        <div className="flex-1 mr-3 border-r-2 border-gary-300 dark:border-white">
           <span className="mx-auto mb-2 text-xl border-b-2">
             online shopping
           </span>
@@ -17,7 +17,7 @@ const Footer = () => {
             <li>Beauty</li>
           </ul>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 mr-3 border-r-2 border-gary-300 dark:border-white">
           <span className="mx-auto text-xl border-b-2">Customer policies</span>
           <ul className="flex flex-col gap-2 mt-2 ">
             <li>Contact us</li>
@@ -40,7 +40,9 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <h3 className="mx-auto mt-2 text-xl">© 2024 All rights reserved.</h3>
+      <div className="flex items-center justify-center">
+        <h3 className="mx-auto mt-2 text-xl">© 2024 All rights reserved.</h3>
+      </div>
     </>
   );
 };

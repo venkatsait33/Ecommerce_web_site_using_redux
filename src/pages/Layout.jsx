@@ -9,20 +9,15 @@ const Layout = () => {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const products = useSelector((store) => store.productReducer.products);
-  const location = useLocation();
-  const object = {
-    params: {
-      gender: searchParams.getAll("gender"),
-      category: searchParams.getAll("category"),
-      _sort: searchParams.getAll("order") && "price",
-      _order: searchParams.get("order"),
-    },
-  };
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
+  }, []);
 
+  if (!Array.isArray(products) || products.length === 0) {
+    return <div>Loading...</div>; // or some error message
+  }
+  
   const divStyle = {
     display: "flex",
     alignItems: "center",
@@ -81,7 +76,7 @@ const Layout = () => {
   ];
 
   return (
-    <div>
+    <div className="relative">
       <div>
         <Slide
           slidesToScroll={1}
@@ -103,13 +98,15 @@ const Layout = () => {
         </Slide>
       </div>
 
-      <div className="">
-        <h4>shop by category</h4>
+      <div className="mt-2 mb-2 bg-orange-300 rounded shadow-sm">
+        <h2 className="p-2 mb-2 text-xl font-semibold text-center bg-orange-400 rounded shadow-sm">
+          Shop by category
+        </h2>
         <Slide slidesToScroll={1} slidesToShow={2} indicators={true}>
           {productCategoryImages.map((slideImage, index) => (
             <div key={index}>
               <div
-                className="w-[500px] h-[500px] items-center"
+                className="w-[350px] h-[500px] items-center"
                 style={{
                   ...divStyle,
                   backgroundImage: `url(${slideImage.url})`,
@@ -120,8 +117,10 @@ const Layout = () => {
         </Slide>
       </div>
 
-      <div>
-        <h2>product scroller</h2>
+      <div className="mt-2 mb-2 bg-green-300 rounded shadow-sm ">
+        <h2 className="p-2 mb-2 text-xl font-semibold text-center bg-green-400 rounded shadow-sm">
+          product Available
+        </h2>
         <Slide
           slidesToScroll={2}
           slidesToShow={2}

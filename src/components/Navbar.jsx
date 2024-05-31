@@ -4,17 +4,27 @@ import { Link, NavLink } from "react-router-dom";
 import { getProducts } from "../redux/productReducer/action";
 import { logout } from "../redux/authReducer/action";
 import { BsSearch } from "react-icons/bs";
-import { IoMoon, IoSunny } from "react-icons/io5";
+import { IoMoon } from "react-icons/io5";
 import { FaBars, FaSun, FaTimes } from "react-icons/fa";
+import { MdShoppingCartCheckout } from "react-icons/md";
+import { CiShoppingCart } from "react-icons/ci";
 
 function Navbar() {
   const [query, setQuery] = useState("");
   const auth = useSelector((store) => store.authReducer.isAuth);
+
   const [dark, setDark] = React.useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const dispatch = useDispatch();
+
+  const cartItems = useSelector((store) => store.cartReducer.cartItems);
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
   let ref = useRef();
   const menuRef = useRef(null);
+  const dispatch = useDispatch();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -113,7 +123,7 @@ function Navbar() {
               Admin Page
             </NavLink>
           </li>
-          <li className="nav-item">
+          {/*<li className="nav-item">
             <NavLink
               to="/edit/1"
               className="text-black dark:text-white nav-links"
@@ -122,7 +132,7 @@ function Navbar() {
             >
               Edit
             </NavLink>
-          </li>
+          </li>*/}
 
           {auth ? (
             <li className="nav-item">
@@ -149,6 +159,21 @@ function Navbar() {
             </li>
           )}
         </ul>
+      </div>
+      <div className="p-1 ml-4">
+        <Link to="/cart" className="relative">
+          <CiShoppingCart size={24} className="dark:text-white" />
+          {totalItems > 0 && (
+            <span className="absolute flex items-center justify-center w-5 h-5 text-white bg-red-500 rounded-full -top-3 -right-2 dark:bg-red-900">
+              {totalItems}
+            </span>
+          )}
+        </Link>
+      </div>
+      <div className="p-1 ml-4">
+        <Link to="/checkout">
+          <MdShoppingCartCheckout size={24} className="dark:text-white" />
+        </Link>
       </div>
       <button
         onClick={() => darkModeHandler()}

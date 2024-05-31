@@ -7,6 +7,8 @@ import PrivateRoute from "./PrivateRoute";
 import EditPage from "./EditPage";
 import ProductDetails from "../components/ProductDetails";
 import Layout from "./Layout";
+import CartPage from "./CartPage";
+import CheckoutPage from "./CheckoutPage";
 
 function MainRoutes() {
   return (
@@ -33,6 +35,15 @@ function MainRoutes() {
         />
         <Route path="*" element={<h3>404 Page not found</h3>} />
         <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <CheckoutPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );

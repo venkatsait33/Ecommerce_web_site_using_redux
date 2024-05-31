@@ -31,41 +31,45 @@ function Login() {
   };
 
   return (
-    <div
-      className="w-[50%] p-2 border-[1px] border-solid mx-auto bg-slate-300 rounded-md shadow-sm flex flex-col gap-5 items-center justify-center h-[350px]  "
-      auth={auth}
-      error={error}
-    >
-      <h1
-        className={`mt-2 text-xl font-bold text-center ${
-          auth ? "text-green-500" : "text-red-500"
-        }`}
+    <div className="h-[70vh] flex items-center justify-center">
+      <div
+        className="w-[50%] p-2 border-[1px] border-solid mx-auto bg-slate-300 rounded-md shadow-sm flex flex-col gap-5 items-center justify-center h-[350px]  "
+        auth={auth}
+        error={error}
       >
-        {auth ? "Login Successfully" : "Login to continue"}
-      </h1>
-      <input
-        type="email"
-        placeholder="User email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className={`w-[90%] rounded p-2 border-[1px] placeholder:font-black
+        <h1
+          className={`mt-2 text-xl font-bold text-center ${
+            auth ? ("text-green-500") : ("text-red-500")
+          }`}
+        >
+          {auth ? ("Login Successfully") : ("Login to continue")}
+        </h1>
+        <h1>eve.holt@reqres.in</h1>
+        
+        <input
+          type="email"
+          placeholder="User email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className={`w-[90%] rounded p-2 border-[1px] placeholder:font-black
          ${error ? "border-red-500" : "border-[#5f0fbb]"} `}
-      />
-      <input
-        type="password"
-        placeholder="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className={`w-[90%] rounded p-2 border-[1px] placeholder:font-black ${
-          error ? "border-red-500" : "border-[#5f0fbb]"
-        } `}
-      />
-      <button
-        onClick={handleLogin}
-        className="w-[90%] bg-[#5f0fbb] text-white rounded p-2 cursor-pointer hover:bg-[#5f0fbb]/80"
-      >
-        Login
-      </button>
+        />
+        <input
+          type="password"
+          placeholder="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className={`w-[90%] rounded p-2 border-[1px] placeholder:font-black ${
+            error ? "border-red-500" : "border-[#5f0fbb]"
+          } `}
+        />
+        <button
+          onClick={handleLogin}
+          className="w-[90%] bg-[#5f0fbb] text-white rounded p-2 cursor-pointer hover:bg-[#5f0fbb]/80"
+        >
+          Login
+        </button>
+      </div>
     </div>
   );
 }

@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, getProducts } from "../redux/productReducer/action";
 import ProductCard from "./ProductCard";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useLocation, useParams, useSearchParams } from "react-router-dom";
 import Pagination from "./Pagination";
+import { addToCart } from "../redux/cartReducer/action";
 
 function ProductList() {
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const products = useSelector((store) => store.productReducer.products);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
-  //console.log(products);
+
+  //const [currentPage, setCurrentPage] = useState(1);
+  //const itemsPerPage = 5;
+  console.log(products);
   const location = useLocation();
 
   const object = {
@@ -30,6 +32,8 @@ function ProductList() {
   if (!Array.isArray(products)) {
     return <div>Loading...</div>;
   }
+ 
+
   {
     /*  useEffect(() => {
     dispatch(fetchProducts(currentPage, itemsPerPage));
@@ -43,7 +47,15 @@ const totalPages = Math.ceil(10 / itemsPerPage);*/
       {products &&
         products.map((element) => {
           return (
-            <ProductCard key={element.id} {...element} showButtons={true} />
+            <div key={element.id}>
+              <ProductCard
+                key={element.id}
+                {...element}
+                showButtons={true}
+                products={products}
+              />
+
+            </div>
           );
         })}
     </div>

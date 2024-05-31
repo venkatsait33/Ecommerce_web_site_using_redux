@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Add_Delete_Btn = ({ handleDelete, id }) => {
+const Add_Delete_Btn = ({ handleDelete, id, handleAddToCart }) => {
   return (
     <div>
       {" "}
@@ -14,6 +14,7 @@ const Add_Delete_Btn = ({ handleDelete, id }) => {
       >
         Delete
       </button>
+  
     </div>
   );
 };

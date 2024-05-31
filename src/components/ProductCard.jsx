@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteProduct, fetchProducts } from "../redux/productReducer/action";
+import { deleteProduct } from "../redux/productReducer/action";
 import { Link } from "react-router-dom";
 import Add_Delete_Btn from "./Add_Delete_Btn";
+import { addToCart } from "../redux/cartReducer/action";
 function ProductCard({
   brand,
   category,
@@ -49,6 +49,7 @@ function ProductCard({
           {showButtons && (
             <Add_Delete_Btn handleDelete={handleDelete} id={id} />
           )}
+          
         </div>
       </div>
     </>

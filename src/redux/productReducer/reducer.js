@@ -57,7 +57,8 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         products: payload,
-      }
+      };
+   
     default:
       return state;
   }

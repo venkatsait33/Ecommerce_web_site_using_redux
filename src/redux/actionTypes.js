@@ -16,3 +16,11 @@ export const LOGOUT = "LOGOUT";
 //product details
 export const FETCH_PRODUCT_DETAILS = "FETCH_PRODUCT_DETAILS";
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
+
+// cart page
+
+export const ADD_TO_CART = "ADD_TO_CART";
+export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
+export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
+export const DELETE_FROM_CART = "DELETE_FROM_CART";
+export const CLEAR_CART = "CLEAR_CART";
