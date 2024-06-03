@@ -1,15 +1,34 @@
-import { legacy_createStore, applyMiddleware, combineReducers } from "redux";
-import { reducer as productReducer } from "./productReducer/reducer";
-import { reducer as authReducer } from "./authReducer/reducer";
-import { reducer as cartReducer } from "./cartReducer/reducer";
+import { legacy_createStore, applyMiddleware } from "redux";
+
 import { thunk } from "redux-thunk";
+
+import storage from "redux-persist/lib/storage";
+import { persistStore, persistReducer } from "redux-persist";
+import { rootReducer } from "./rootReducer";
 
 // there are two reducers in the code so then use the combine reducers function from redux
 
-const rootReducer = combineReducers({
-  productReducer,
-  authReducer,
-  cartReducer,
-});
+const persistConfig = {
+  key: "root",
+  storage,
+  whileList: ["authReducer", "cartReducer"],
+};
 
-export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
+//const persistedState = loadState();
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = legacy_createStore(
+  persistedReducer,
+  applyMiddleware(thunk)
+);
+
+export const persistor = persistStore(store);
+
+{
+  /*store.subscribe(() => {
+  saveState({
+    cartReducer: store.getState().cartReducer,
+  });
+});*/
+}

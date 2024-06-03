@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { getProducts } from "../redux/productReducer/action";
 import { logout } from "../redux/authReducer/action";
 import { BsSearch } from "react-icons/bs";
@@ -8,15 +8,18 @@ import { IoMoon } from "react-icons/io5";
 import { FaBars, FaSun, FaTimes } from "react-icons/fa";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { CiShoppingCart } from "react-icons/ci";
+import { toast } from "react-toastify";
 
 function Navbar() {
   const [query, setQuery] = useState("");
+
   const auth = useSelector((store) => store.authReducer.isAuth);
 
-  const [dark, setDark] = React.useState(false);
+  const [dark, setDark] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const cartItems = useSelector((store) => store.cartReducer.cartItems);
+
   const totalItems = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
@@ -25,7 +28,7 @@ function Navbar() {
   let ref = useRef();
   const menuRef = useRef(null);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -51,7 +54,9 @@ function Navbar() {
 
   const handleLogout = () => {
     dispatch(logout());
-    console.log("logout sucessfull");
+    //console.log("logout sucessfull");
+    navigate("/login");
+    toast.error("logout successful");
   };
 
   const handleClickOutside = (event) => {
@@ -73,14 +78,14 @@ function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="static z-50 w-full top-10 navbar dark:bg-gray-900 ">
+    <nav className="static z-50 w-full border-b-2 border-gray-300 shadow-xl navbar dark:bg-gray-900 ">
       <div className="navbar-container">
         <Link to="/">
           <h1 className="text-2xl font-bold dark:text-white navbar-brand">
             Product List
           </h1>
         </Link>
-        <div className="menu-icon">
+        <div className="relative menu-icon">
           <button onClick={toggleMenu} className="text-black dark:text-white">
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>

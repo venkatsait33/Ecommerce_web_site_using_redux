@@ -13,6 +13,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   products: [],
+  totalItems: 0,
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -46,7 +47,9 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        products: payload,
+        products: state.products.map((item) =>
+          item.id === action.payload.id ? action.payload : item
+        ),
       };
     case FETCH_PRODUCT_DETAILS:
       return {
@@ -56,9 +59,10 @@ export const reducer = (state = initialState, { type, payload }) => {
     case FETCH_PRODUCTS:
       return {
         ...state,
-        products: payload,
+        products: payload.products,
+        totalItems: payload.totalItems,
       };
-   
+
     default:
       return state;
   }

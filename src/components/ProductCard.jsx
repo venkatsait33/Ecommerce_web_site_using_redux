@@ -3,6 +3,7 @@ import { deleteProduct } from "../redux/productReducer/action";
 import { Link } from "react-router-dom";
 import Add_Delete_Btn from "./Add_Delete_Btn";
 import { addToCart } from "../redux/cartReducer/action";
+import { toast } from "react-toastify";
 function ProductCard({
   brand,
   category,
@@ -17,6 +18,7 @@ function ProductCard({
 
   const handleDelete = () => {
     dispatch(deleteProduct(id));
+    toast.error(`Product ${name} deleted`)
   };
 
   return (

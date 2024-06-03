@@ -14,6 +14,7 @@ const initialState = {
 function Admin() {
   const [product, setProduct] = useState(initialState);
   const dispatch = useDispatch();
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProduct((prev) => {

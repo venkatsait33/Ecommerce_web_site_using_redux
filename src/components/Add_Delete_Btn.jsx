@@ -14,7 +14,7 @@ const Add_Delete_Btn = ({ handleDelete, id, handleAddToCart }) => {
       >
         Delete
       </button>
-  
+   
     </div>
   );
 };

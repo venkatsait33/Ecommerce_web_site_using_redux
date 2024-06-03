@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/authReducer/action";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,21 +12,29 @@ function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   //console.log(location);
-
+  const { from } = location.state || { from: { pathname: "/" } };
   const auth = useSelector((store) => store.authReducer.isAuth);
   const error = useSelector((store) => store.authReducer.isError);
   //console.log(error);
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
+
     let userData = {
       email,
       password,
     };
 
     // we send the data to the login action to fetch the user data and login the user by using the dispatch hook
-    dispatch(login(userData)).then(() => {
-      navigate("/");
-    });
+    dispatch(login(userData))
+      .then(() => {
+        navigate("/");
+        toast.success("Login Successfully");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+
     setEmail("");
     setPassword("");
   };
@@ -39,19 +48,19 @@ function Login() {
       >
         <h1
           className={`mt-2 text-xl font-bold text-center ${
-            auth ? ("text-green-500") : ("text-red-500")
+            auth ? "text-green-500" : "text-red-500"
           }`}
         >
-          {auth ? ("Login Successfully") : ("Login to continue")}
+          {auth ? "Login Successfully" : "Login to continue"}
         </h1>
         <h1>eve.holt@reqres.in</h1>
-        
+
         <input
           type="email"
           placeholder="User email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={`w-[90%] rounded p-2 border-[1px] placeholder:font-black
+          className={`w-[90%] rounded p-2 dark:text-black border-[1px] placeholder:font-black
          ${error ? "border-red-500" : "border-[#5f0fbb]"} `}
         />
         <input
@@ -59,7 +68,7 @@ function Login() {
           placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className={`w-[90%] rounded p-2 border-[1px] placeholder:font-black ${
+          className={`w-[90%] dark:text-black rounded p-2 border-[1px] placeholder:font-black ${
             error ? "border-red-500" : "border-[#5f0fbb]"
           } `}
         />

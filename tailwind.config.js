@@ -5,7 +5,7 @@ export default {
 
   theme: {
     screens: {
-      tablet: "640px",
+      tablet: "540px",
       // => @media (min-width: 640px) { ... }
 
       laptop: "1024px",

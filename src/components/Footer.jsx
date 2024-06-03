@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <div className="flex p-2 border-t-2 dark:bg-gray-900">
+      <div className="flex p-2 border-t-2 max-[560px]:flex-col max-[560px]:justify-center gap-2 dark:bg-gray-900">
         <div className="flex-1 mr-3 border-r-2 border-gary-300 dark:border-white">
           <span className="mx-auto mb-2 text-xl border-b-2">
             online shopping

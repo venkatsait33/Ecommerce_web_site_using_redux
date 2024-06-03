@@ -76,7 +76,7 @@ const Layout = () => {
   ];
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <div>
         <Slide
           slidesToScroll={1}

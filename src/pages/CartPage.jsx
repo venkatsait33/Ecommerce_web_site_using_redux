@@ -39,12 +39,12 @@ const CartPage = () => {
   };
 
   return (
-    <div className="h-full p-4 mx-auto overflow-y-auto cart-page ">
-      <h2 className="text-2xl font-bold">Cart</h2>
+    <div className="h-full p-4 mx-auto overflow-y-auto cart-page">
+      <h2 className="text-2xl font-bold ">Cart</h2>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty</p>
+        <p className="h-[30vh]">Your cart is empty</p>
       ) : (
-        <div className="flex flex-col items-center justify-between gap-3 mt-4">
+        <div className="flex items-center justify-between gap-3 mt-4">
           {cartItems.map((item, index) => (
             <div key={index} className="flex border rounded-lg cart-item">
               <div className="flex">

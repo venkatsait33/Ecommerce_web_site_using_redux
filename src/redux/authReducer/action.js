@@ -5,6 +5,7 @@ import {
   LOGIN_SUCCESS,
   LOGOUT,
 } from "../actionTypes";
+import { persistor } from "../store";
 
 export const login = (userData) => (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
@@ -15,15 +16,17 @@ export const login = (userData) => (dispatch) => {
     .post("https://reqres.in/api/login", userData)
     .then((response) => {
       console.log(response);
-      dispatch({ type: LOGIN_SUCCESS, payload: response.data.token });
+      dispatch({ type: LOGIN_SUCCESS, payload: response.data });
     })
     .catch((error) => {
       dispatch({ type: LOGIN_FAILURE, payload: error.message });
     });
 };
 
-export const logout = () => {
-  return {
-    type: LOGOUT,
-  };
+export const logout = () => dispatch => {
+  
+  persistor.purge().then(() => {
+    dispatch({ type: LOGOUT });
+  })
+ 
 };

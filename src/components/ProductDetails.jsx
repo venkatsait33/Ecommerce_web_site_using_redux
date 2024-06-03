@@ -4,6 +4,7 @@ import { fetchProductDetails } from "../redux/productReducer/action";
 import { useNavigate, useParams } from "react-router-dom";
 import { IoMdArrowBack } from "react-icons/io";
 import { addToCart } from "../redux/cartReducer/action";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   let { id } = useParams();
@@ -11,20 +12,21 @@ const ProductDetails = () => {
   const products = useSelector((store) => store.productReducer.products);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(fetchProductDetails(id));
-  }, []);
   const handleBack = useCallback(() => {
-    navigate(-1);
+    navigate(-2);
   }, [navigate]);
 
   const handleAddToCart = () => {
     dispatch(addToCart(products));
+    toast.success("Added to cart successfully!");
   };
+  useEffect(() => {
+    dispatch(fetchProductDetails(id));
+  }, [id]);
 
   return (
     <>
-      <div className="flex mx-auto h-[70vh] border border-solid border-gray-300 dark:border-white rounded-lg p-4">
+      <div className="flex mx-auto h-[70vh] border border-solid border-gray-300 dark:border-white rounded-lg p-4 max-[560px]:flex-col max-[560px]:h-[50vh]">
         <span>
           <button
             onClick={handleBack}
@@ -33,16 +35,16 @@ const ProductDetails = () => {
             <IoMdArrowBack />
           </button>
         </span>
-        <div className="flex items-center justify-center w-[80%] p-2 mx-auto  text-center bg-white rounded-lg shadow-lg dark:bg-gray-900 gap-4 h-[50vh] mt-4 border border-solid border-gray-300 dark:border-white">
-          <div className="sticky bottom-0 w-[30%] right-0 z-0 rounded-l-lg ">
+        <div className="flex items-center justify-center w-[70%] p-2 mx-auto  text-center bg-white rounded-lg shadow-lg dark:bg-gray-900 gap-4 h-[50vh] mt-4 border border-solid border-gray-300 dark:border-white max-[560px]:flex-col">
+          <div className="sticky bottom-0 w-[30%] right-0 z-0  rounded-l-lg ">
             <img
               src={products.image}
               alt={products.name}
-              className=" ml-2 w-[40%] text-center rounded-lg h-full"
+              className=" ml-2 w-[50%] text-center rounded-lg h-full"
             />
           </div>
 
-          <div className="w-[60%] flex flex-col justify-center h-full gap-3 p-3 bg-transparent border-l-2 border-gray-900  bg-slate-50 dark:border-white">
+          <div className="w-[60%] flex flex-col justify-center h-full gap-3 p-3 bg-transparent border-gray-900   bg-slate-50 dark:border-white border-l-2">
             <h2 className="text-xl font-semibold dark:text-white">
               {products.name}
             </h2>

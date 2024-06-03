@@ -7,14 +7,33 @@ import Pagination from "./Pagination";
 import { addToCart } from "../redux/cartReducer/action";
 
 function ProductList() {
-  const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
-  const products = useSelector((store) => store.productReducer.products);
-
-  //const [currentPage, setCurrentPage] = useState(1);
-  //const itemsPerPage = 5;
-  console.log(products);
   const location = useLocation();
+  const products = useSelector((store) => store.productReducer.products);
+  const totalItems = useSelector((store) => store.productReducer.totalItems);
+  const [searchParams] = useSearchParams();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+  console.log(products);
+
+  useEffect(() => {
+    dispatch(fetchProducts(currentPage, itemsPerPage));
+  }, [dispatch, currentPage]);
+
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
 
   const object = {
     params: {
@@ -24,7 +43,6 @@ function ProductList() {
       _order: searchParams.get("order"),
     },
   };
-
   useEffect(() => {
     dispatch(getProducts(object));
   }, [location.search]);
@@ -32,32 +50,44 @@ function ProductList() {
   if (!Array.isArray(products)) {
     return <div>Loading...</div>;
   }
- 
-
-  {
-    /*  useEffect(() => {
-    dispatch(fetchProducts(currentPage, itemsPerPage));
-  }, [dispatch, currentPage]);
-const totalPages = Math.ceil(10 / itemsPerPage);*/
-  }
 
   return (
-    <div className=" grid ml-5 items-center justify-center w-[95%] grid-cols-2 gap-3 bg-white tablet:grid-cols-3 laptop:grid-cols-4 dark:bg-gray-900">
-      {/* we use and operator to show that if the data is passed from the server or not. if the data is not present it will shows the blank products */}
-      {products &&
-        products.map((element) => {
-          return (
-            <div key={element.id}>
-              <ProductCard
-                key={element.id}
-                {...element}
-                showButtons={true}
-                products={products}
-              />
-
-            </div>
-          );
-        })}
+    <div className="product-list p-4 h-full">
+      <div className=" grid ml-5 items-center justify-center w-[95%] grid-cols-2 gap-3 bg-white tablet:grid-cols-3 laptop:grid-cols-4 dark:bg-gray-900">
+        {/* we use and operator to show that if the data is passed from the server or not. if the data is not present it will shows the blank products */}
+        {products &&
+          products.map((element) => {
+            return (
+              <div key={element.id}>
+                <ProductCard
+                  key={element.id}
+                  {...element}
+                  showButtons={true}
+                  products={products}
+                />
+              </div>
+            );
+          })}
+      </div>
+      <div className="pagination-controls mt-4 flex flex-row justify-center  items-center">
+        <button
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+          className="bg-gray-500 text-white px-4 py-2 mr-2 rounded"
+        >
+          Previous
+        </button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+          className="bg-gray-500 text-white px-4 py-2 ml-2 rounded"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }

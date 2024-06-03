@@ -5,7 +5,7 @@
       "name": "boots",
       "image": "http://dummyimage.com/219x100.png/5fa2dd/ffffff",
       "brand": "Levi's",
-      "price": "100",
+      "price": 1000,
       "category": "shoes",
       "gender": "kid"
     },
@@ -64,15 +64,6 @@
       "id": 27
     },
     {
-      "name": "11",
-      "image": "11",
-      "brand": "11",
-      "category": "11",
-      "gender": "",
-      "price": "11",
-      "id": 28
-    },
-    {
       "id": 29,
       "name": "dress",
       "image": "http://dummyimage.com/178x100.png/ff4444/ffffff",
@@ -103,9 +94,9 @@
       "name": "JEAN TOPS",
       "image": "https://picsum.photos/200/300",
       "brand": "TWILLS",
-      "category": "",
+      "category": "sai",
       "gender": "",
-      "price": "",
+      "price": 1112,
       "id": 33
     },
     {
@@ -116,6 +107,42 @@
       "gender": "male",
       "price": 899,
       "id": 34
+    },
+    {
+      "name": "men shorts",
+      "image": "https://m.media-amazon.com/images/I/81jfIa1pvXL._AC_UL480_FMwebp_QL65_.jpg",
+      "brand": "puma",
+      "category": "shorts",
+      "gender": "male",
+      "price": 899,
+      "id": 35
+    },
+    {
+      "name": "men shorts",
+      "image": "https://m.media-amazon.com/images/I/81jfIa1pvXL._AC_UL480_FMwebp_QL65_.jpg",
+      "brand": "puma",
+      "category": "shorts",
+      "gender": "male",
+      "price": 899,
+      "id": 36
+    },
+    {
+      "name": "men shorts",
+      "image": "https://m.media-amazon.com/images/I/81jfIa1pvXL._AC_UL480_FMwebp_QL65_.jpg",
+      "brand": "puma",
+      "category": "shorts",
+      "gender": "male",
+      "price": 899,
+      "id": 37
+    },
+    {
+      "name": "men shorts",
+      "image": "https://m.media-amazon.com/images/I/81jfIa1pvXL._AC_UL480_FMwebp_QL65_.jpg",
+      "brand": "puma",
+      "category": "shorts",
+      "gender": "male",
+      "price": 899,
+      "id": 39
     }
   ]
 }

@@ -7,9 +7,13 @@ function PrivateRoute({ children }) {
 
   // we use location hook to identify the current page route and send the route path as a state to the login page to navigate to admin page after login
   const location = useLocation();
-  console.log(location);
+  //console.log(location);
 
-  return auth ? children : <Navigate state={location.pathname} to="/login" />;
+  if (!auth) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  return children;
 }
 
 export default PrivateRoute;

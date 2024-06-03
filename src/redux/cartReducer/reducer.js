@@ -4,6 +4,7 @@ import {
   DECREASE_QUANTITY,
   DELETE_FROM_CART,
   INCREASE_QUANTITY,
+  LOGOUT,
 } from "../actionTypes";
 
 const initialState = {
@@ -65,6 +66,9 @@ export const reducer = (state = initialState, action) => {
         ...state,
         cartItems: [],
       };
+
+    case LOGOUT:
+      return initialState;
     default:
       return state;
   }

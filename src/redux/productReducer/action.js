@@ -15,7 +15,7 @@ export const addProduct = (newProduct) => (dispatch) => {
   axios
     .post("http://localhost:3001/products", newProduct)
     .then((res) => {
-     // console.log(res.data);
+      // console.log(res.data);
       dispatch({ type: POST_PRODUCT_SUCCESS, payload: res.data });
     })
     .catch((error) => {
@@ -57,10 +57,13 @@ export const deleteProduct = (id) => (dispatch) => {
     });
 };
 
-export const editProduct = (id, data) => (dispatch) => {
+export const editProduct = (updatedProduct) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   axios
-    .patch(`http://localhost:3001/products/${id}`, data)
+    .patch(
+      `http://localhost:3001/products/${updatedProduct.id}`,
+      updatedProduct
+    )
     .then((response) => {
       //console.log(response.data);
 
@@ -86,20 +89,24 @@ export const fetchProductDetails = (id) => (dispatch) => {
       dispatch({ type: PRODUCT_FAILURE, payload: error.message });
     });
 };
-export const fetchProducts =
-  (page = 1, limit = 10) =>
-  (dispatch) => {
-    dispatch({ type: PRODUCT_REQUEST });
-    axios
-      .get(`http://localhost:3001/products?_page=${page}&_limit=${limit}`)
+export const fetchProducts = (page, itemsPerPage) => (dispatch) => {
+  dispatch({ type: PRODUCT_REQUEST });
+  axios
+    .get(`http://localhost:3001/products?_page=${page}&_limit=${itemsPerPage}`)
 
-      .then((response) => {
-        //console.log(response.data);
+    .then((response) => {
+      //console.log(response.data);
 
-        dispatch({ type: FETCH_PRODUCTS, payload: response.data });
-      })
-      .catch((error) => {
-        //console.log(error.message);
-        dispatch({ type: PRODUCT_FAILURE, payload: error.message });
+      dispatch({
+        type: FETCH_PRODUCTS,
+        payload: {
+          products: response.data,
+          totalItems: parseInt(response.headers["x-total-count"], 10),
+        },
       });
-  };
+    })
+    .catch((error) => {
+      //console.log(error.message);
+      dispatch({ type: PRODUCT_FAILURE, payload: error.message });
+    });
+};
