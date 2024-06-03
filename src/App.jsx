@@ -8,9 +8,9 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <>
-      <div className="text-black bg-white dark:bg-gray-900 dark:text-white scroll-smooth">
+      <div className="w-screen h-screen text-black bg-white dark:bg-gray-900 dark:text-white scroll-smooth">
         <ToastContainer />
-        <div className="mx-auto ">
+        <div className="relative w-full mx-auto z-100">
           <Navbar />
         </div>
         <div className="">

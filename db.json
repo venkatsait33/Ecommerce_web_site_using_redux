@@ -1,96 +1,6 @@
 {
   "products": [
     {
-      "id": 11,
-      "name": "boots",
-      "image": "http://dummyimage.com/219x100.png/5fa2dd/ffffff",
-      "brand": "Levi's",
-      "price": 1000,
-      "category": "shoes",
-      "gender": "kid"
-    },
-    {
-      "id": 12,
-      "name": "sneakers",
-      "image": "http://dummyimage.com/240x100.png/ff4444/ffffff",
-      "brand": "Forever 21",
-      "price": "93457878788",
-      "category": "t-shirt",
-      "gender": "kid"
-    },
-    {
-      "id": 15,
-      "name": "skirt",
-      "image": "http://dummyimage.com/231x100.png/cc0000/ffffff",
-      "brand": "Adidas",
-      "price": 9830,
-      "category": "jeans",
-      "gender": "male"
-    },
-    {
-      "id": 16,
-      "name": "sneakers",
-      "image": "http://dummyimage.com/179x100.png/5fa2dd/ffffff",
-      "brand": "H&M",
-      "price": "52",
-      "category": "t-shirt",
-      "gender": "male"
-    },
-    {
-      "id": 19,
-      "name": "dress",
-      "image": "http://dummyimage.com/178x100.png/ff4444/ffffff",
-      "brand": "Nike",
-      "price": "6680",
-      "category": "jeans",
-      "gender": "female"
-    },
-    {
-      "name": "chinos",
-      "image": "https://picsum.photos/200/300",
-      "brand": "netplay",
-      "category": "jeans",
-      "gender": "male",
-      "price": 808,
-      "id": 20
-    },
-    {
-      "name": "polo t-shirt",
-      "image": "https://picsum.photos/200/300",
-      "brand": "DNMX",
-      "category": "t-shirt",
-      "gender": "male",
-      "price": 638,
-      "id": 27
-    },
-    {
-      "id": 29,
-      "name": "dress",
-      "image": "http://dummyimage.com/178x100.png/ff4444/ffffff",
-      "brand": "Nike",
-      "price": "6680",
-      "category": "jeans",
-      "gender": "female"
-    },
-    {
-      "name": "chinos",
-      "image": "https://picsum.photos/200/300",
-      "brand": "netplay",
-      "category": "jeans",
-      "gender": "male",
-      "price": 808,
-      "id": 31
-    },
-    {
-      "name": "polo t-shirt",
-      "image": "https://picsum.photos/200/300",
-      "brand": "DNMX",
-      "category": "t-shirt",
-      "gender": "male",
-      "price": 638,
-      "id": 32
-    },
-    {
       "name": "JEAN TOPS",
       "image": "https://picsum.photos/200/300",
       "brand": "TWILLS",
@@ -109,40 +19,58 @@
       "id": 34
     },
     {
-      "name": "men shorts",
-      "image": "https://m.media-amazon.com/images/I/81jfIa1pvXL._AC_UL480_FMwebp_QL65_.jpg",
-      "brand": "puma",
-      "category": "shorts",
+      "name": "SPARX Mens",
+      "image": "https://m.media-amazon.com/images/I/81mw0IfvWIL._SX500_.jpg",
+      "brand": "Sparx",
+      "category": "footwear",
       "gender": "male",
-      "price": 899,
-      "id": 35
+      "price": 649,
+      "id": 40
     },
     {
-      "name": "men shorts",
-      "image": "https://m.media-amazon.com/images/I/81jfIa1pvXL._AC_UL480_FMwebp_QL65_.jpg",
-      "brand": "puma",
-      "category": "shorts",
-      "gender": "male",
-      "price": 899,
-      "id": 36
+      "name": "Centrino Mens 3211 Casual",
+      "image": "https://m.media-amazon.com/images/I/61sWP8CfzjL._SY500_.jpg",
+      "brand": "Centrino",
+      "category": "footwear",
+      "gender": "",
+      "price": 499,
+      "id": 41
     },
     {
-      "name": "men shorts",
-      "image": "https://m.media-amazon.com/images/I/81jfIa1pvXL._AC_UL480_FMwebp_QL65_.jpg",
-      "brand": "puma",
-      "category": "shorts",
+      "name": "Allen Solly Men's Regular Fit Polo",
+      "image": "https://m.media-amazon.com/images/I/81r473subGL._SY550_.jpg",
+      "brand": "Allen Solly ",
+      "category": "t-shirt",
       "gender": "male",
-      "price": 899,
-      "id": 37
+      "price": 649,
+      "id": 42
     },
     {
-      "name": "men shorts",
-      "image": "https://m.media-amazon.com/images/I/81jfIa1pvXL._AC_UL480_FMwebp_QL65_.jpg",
-      "brand": "puma",
-      "category": "shorts",
+      "name": "Spykar Slim Fit Black Jeans for Men - Mid Rise",
+      "image": "https://m.media-amazon.com/images/I/51HK-vSG2tL._SY550_.jpg",
+      "brand": "SpyKar",
+      "category": "jeans",
       "gender": "male",
-      "price": 899,
-      "id": 39
+      "price": 1439,
+      "id": 43
+    },
+    {
+      "name": "BIBA Women Rayon Regular Kurta",
+      "image": "https://m.media-amazon.com/images/I/61tA35-5HGL._SX522_.jpg",
+      "brand": "Biba",
+      "category": "womenTop",
+      "gender": "female",
+      "price": 799,
+      "id": 44
+    },
+    {
+      "name": "W for Woman Viscose",
+      "image": "https://m.media-amazon.com/images/I/712-K0sOSDL._SY550_.jpg",
+      "brand": "W for woman",
+      "category": "salwar",
+      "gender": "female",
+      "price": 1918,
+      "id": 45
     }
   ]
 }

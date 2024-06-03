@@ -50,7 +50,7 @@ export default function EditPage() {
   }, [navigate]);
 
   return (
-    <div className="flex mx-auto h-[70vh] border border-solid border-gray-300 dark:border-white rounded-lg p-4">
+    <div className="flex h-full p-4 mx-auto border border-gray-300 border-solid rounded-lg dark:border-white max-[560px]:flex-col max-[560px]:w-[100%]">
       {" "}
       <span>
         <button
@@ -60,45 +60,50 @@ export default function EditPage() {
           <IoMdArrowBack />
         </button>
       </span>
-      <div className="flex flex-col items-center p-4 mx-auto mt-5 rounded-lg shadow-md bg-slate-500 w-[60%] h-[60vh] laptop:h-[80vh] mb-2">
-        <h1 className="mb-4 text-2xl font-semibold">{id}</h1>
+      <div className="flex flex-col items-center p-4 mx-auto mt-5 rounded-lg shadow-md bg-slate-300 w-[50%] max-[560px]:w-[80%]  mb-2">
+        <h1 className="mb-4 text-2xl font-semibold">Product:&nbsp;{id}</h1>
         {product ? (
-          <form onSubmit={handleSubmit}>
-            <div className="flex flex-col items-center gap-3">
+          <form onSubmit={handleSubmit} className="w-[90%]">
+            <div className="flex flex-col items-center justify-between w-full gap-2">
+              <label htmlFor="price">Price:</label>
               <input
                 type="number"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="p-2 border-2 border-gray-300 rounded-lg w-[80%] dark:text-black"
+                className="p-2 border-2 border-gray-300 rounded-lg w-[90%] dark:text-black"
               />
+              <label htmlFor="name">Product Name:</label>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="p-2 border-2 border-gray-300 rounded-lg w-[80%] dark:text-black"
+                className="p-2 border-2 border-gray-300 rounded-lg w-[90%] dark:text-black"
               />
+              <label htmlFor="brand">Brand:</label>
               <input
                 type="text"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
-                className="p-2 border-2 border-gray-300 rounded-lg w-[80%] dark:text-black"
+                className="p-2 border-2 border-gray-300 rounded-lg w-[90%] dark:text-black"
               />
+              <label htmlFor="category">Category:</label>
               <input
                 type="text"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="p-2 border-2 border-gray-300 rounded-lg w-[80%] dark:text-black"
+                className="p-2 border-2 border-gray-300 rounded-lg w-[90%] dark:text-black"
               />
+              <label htmlFor="image">Image URL</label>
               <input
                 type="text"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
-                className="p-2 border-2 border-gray-300 rounded-lg w-[80%] dark:text-black"
+                className="p-2 border-2 border-gray-300 rounded-lg w-[90%] dark:text-black"
               />
 
               <button
                 type="submit"
-                className="px-4  py-2 mx-auto w-[80%] text-white bg-blue-400 border rounded-lg hover:bg-blue-500"
+                className="px-4  py-2 mx-auto w-[90%] text-white bg-blue-400 border rounded-lg hover:bg-blue-500"
               >
                 update
               </button>

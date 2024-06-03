@@ -165,6 +165,48 @@ const SideBar = () => {
             checked={category.includes("shorts")}
           />
         </span>
+        <span className="flex items-center justify-between ">
+          {" "}
+          <label htmlFor="shoes" className="dark:text-white">
+            footwear
+          </label>
+          <input
+            type="checkbox"
+            id="footwear"
+            name="footwear"
+            value="footwear"
+            onChange={handleCategory}
+            checked={category.includes("footwear")}
+          />
+        </span>
+        <span className="flex items-center justify-between ">
+          {" "}
+          <label htmlFor="shoes" className="dark:text-white">
+            salwar
+          </label>
+          <input
+            type="checkbox"
+            id="salwar"
+            name="salwar"
+            value="salwar"
+            onChange={handleCategory}
+            checked={category.includes("salwar")}
+          />
+        </span>
+        <span className="flex items-center justify-between ">
+          {" "}
+          <label htmlFor="shoes" className="dark:text-white">
+            womentop
+          </label>
+          <input
+            type="checkbox"
+            id="womentop"
+            name="womentop"
+            value="womentop"
+            onChange={handleCategory}
+            checked={category.includes("womentop")}
+          />
+        </span>
       </div>
       <h3 className="font-medium text-center dark:text-white">Sort by price</h3>
       <div

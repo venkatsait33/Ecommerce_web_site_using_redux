@@ -26,7 +26,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <div className="flex mx-auto h-[70vh] border border-solid border-gray-300 dark:border-white rounded-lg p-4 max-[560px]:flex-col max-[560px]:h-[50vh]">
+      <div className="flex w-full h-full p-4 mx-auto border border-gray-300 border-solid rounded-lg dark:border-white max-[560px]:flex-col max-[560px]:w-[100%]">
         <span>
           <button
             onClick={handleBack}
@@ -35,16 +35,16 @@ const ProductDetails = () => {
             <IoMdArrowBack />
           </button>
         </span>
-        <div className="flex items-center justify-center w-[70%] p-2 mx-auto  text-center bg-white rounded-lg shadow-lg dark:bg-gray-900 gap-4 h-[50vh] mt-4 border border-solid border-gray-300 dark:border-white max-[560px]:flex-col">
-          <div className="sticky bottom-0 w-[30%] right-0 z-0  rounded-l-lg ">
+        <div className="flex items-center justify-center w-[60%] p-2 mx-auto  text-center bg-white rounded-lg shadow-lg dark:bg-gray-900 gap-4 mt-4 border border-solid border-gray-300 dark:border-white max-[560px]:flex-col max-[560px]:w-[80%]">
+          <div className="w-[50%] flex items-center justify-center  rounded-l-lg ">
             <img
               src={products.image}
               alt={products.name}
-              className=" ml-2 w-[50%] text-center rounded-lg h-full"
+              className="w-[45%] max-[560px]:w-[40%] text-center rounded-lg "
             />
           </div>
 
-          <div className="w-[60%] flex flex-col justify-center h-full gap-3 p-3 bg-transparent border-gray-900   bg-slate-50 dark:border-white border-l-2">
+          <div className="w-[60%] flex flex-col justify-center h-full gap-3 p-3 bg-transparent border-gray-900   bg-slate-50 dark:border-white">
             <h2 className="text-xl font-semibold dark:text-white">
               {products.name}
             </h2>

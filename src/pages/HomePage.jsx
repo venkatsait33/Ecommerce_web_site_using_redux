@@ -4,8 +4,8 @@ import SideBar from "../components/SideBar";
 
 function HomePage() {
   return (
-    <div className="flex p-2 dark:bg-gray-900 dark:text-white">
-      <div className="sticky w-[15%] max-[668px]:absolute  border-r-[2px] border-solid border-gray-300  dark:border-white-700 tablet:w-[170px] h-[100vh] solid bg-white  dark:bg-gray-900 dark:text-white  dark:border-white-700  dark:border-r-[2px] dark:border-solid rounded-l-lg  max-[668px]:hidden ">
+    <div className="flex h-screen p-2 mb-5 dark:bg-gray-900 dark:text-white">
+      <div className="sticky w-[15%] max-[668px]:absolute  border-r-[2px] border-solid border-gray-300  dark:border-white-700 tablet:w-[170px] h-full solid bg-white  dark:bg-gray-900 dark:text-white  dark:border-white-700  dark:border-r-[2px] dark:border-solid rounded-l-lg  max-[668px]:hidden ">
         <SideBar />
       </div>
       <div

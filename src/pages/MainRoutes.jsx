@@ -9,6 +9,7 @@ import ProductDetails from "../components/ProductDetails";
 import Layout from "./Layout";
 import CartPage from "./CartPage";
 import CheckoutPage from "./CheckoutPage";
+import PageNotFound from "./PageNotFound";
 
 function MainRoutes() {
   return (
@@ -16,6 +17,7 @@ function MainRoutes() {
       <Routes>
         <Route path="/" element={<Layout />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
         <Route
           path="/add-product"
           element={
@@ -24,7 +26,6 @@ function MainRoutes() {
             </PrivateRoute>
           }
         />
-        <Route path="/login" element={<Login />} />
         <Route
           path="/edit/:id"
           element={
@@ -33,7 +34,6 @@ function MainRoutes() {
             </PrivateRoute>
           }
         />
-        <Route path="*" element={<h3>404 Page not found</h3>} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<CartPage />} />
         <Route
@@ -44,6 +44,7 @@ function MainRoutes() {
             </PrivateRoute>
           }
         />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );

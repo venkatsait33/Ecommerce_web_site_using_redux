@@ -16,26 +16,26 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div className="h-[70vh] p-4 w-[80%] mx-auto overflow-y-auto checkout-page">
+    <div className="z-10 w-full h-screen p-4 mx-auto overflow-y-auto checkout-page">
       <h2 className="pb-2 mb-4 text-2xl font-semibold border-b-2">CheckOut</h2>
       {cartItems.length === 0 ? (
         <p className="text-2xl font-semibold">Your cart is empty</p>
       ) : (
-        <div className="flex justify-between">
+        <div className="flex items-center flex-col justify-between text-center w-[80%] mx-auto max-[560px]:flex-col ">
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="flex items-center justify-between p-4 mt-4 border rounded-lg shadow-md cart-item"
+              className="flex items-center w-[80%] justify-between p-4 mt-4 border rounded-lg shadow-md cart-item max-[560px]:flex-col"
             >
-              <div className="flex">
+              <div className="flex items-center justify-between w-[80%]">
                 <div className="">
                   <img
                     src={item.image}
-                    className="object-cover w-[30%]  rounded-lg"
+                    className="object-cover w-[80%]  rounded-lg"
                     alt=""
                   />
                 </div>
-                <div className="w-[60%] flex gap-3 flex-col border-l-2 pl-2">
+                <div className="w-[50%] flex gap-3 flex-col border-l-2  justify-center  mx-auto">
                   <h3 className="text-xl font-bold">{item.name}</h3>
                   <p>{item.description}</p>
                   <p className="text-xl font-semibold">${item.price}</p>

@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   const cartItems = useSelector((store) => store.cartReducer.cartItems);
-  console.log(cartItems);
+  //console.log(cartItems);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ const CartPage = () => {
       {cartItems.length === 0 ? (
         <p className="h-[30vh]">Your cart is empty</p>
       ) : (
-        <div className="flex items-center justify-between gap-3 mt-4">
+        <div className="flex flex-col items-center justify-between gap-3 mt-4">
           {cartItems.map((item, index) => (
             <div key={index} className="flex border rounded-lg cart-item">
               <div className="flex">

@@ -9,26 +9,24 @@ import { FaBars, FaSun, FaTimes } from "react-icons/fa";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { CiShoppingCart } from "react-icons/ci";
 import { toast } from "react-toastify";
+import SearchBar from "./SearchBar";
 
 function Navbar() {
   const [query, setQuery] = useState("");
-
   const auth = useSelector((store) => store.authReducer.isAuth);
-
   const [dark, setDark] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
   const cartItems = useSelector((store) => store.cartReducer.cartItems);
+  let ref = useRef();
+  const menuRef = useRef(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const totalItems = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
   );
 
-  let ref = useRef();
-  const menuRef = useRef(null);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -43,6 +41,7 @@ function Navbar() {
       q: query,
     },
   };
+
   useEffect(() => {
     if (ref.current) {
       clearInterval(ref.current); // Clear the interval
@@ -71,14 +70,13 @@ function Navbar() {
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
 
   return (
-    <nav className="static z-50 w-full border-b-2 border-gray-300 shadow-xl navbar dark:bg-gray-900 ">
+    <nav className="w-full border-b-2 border-gray-300 shadow-xl navbar dark:bg-gray-900 dark:text-white">
       <div className="navbar-container">
         <Link to="/">
           <h1 className="text-2xl font-bold dark:text-white navbar-brand">
@@ -90,7 +88,6 @@ function Navbar() {
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
-
         <ul
           ref={menuRef}
           className={`${
@@ -98,15 +95,7 @@ function Navbar() {
           } dark:text-white dark:bg-gray-900`}
         >
           <div>
-            <span className="flex items-center p-2 text-center rounded outline-none dark:text-white dark:bg-gray-700 dark:border-gray-600">
-              <input
-                type="text"
-                placeholder="Search..."
-                onChange={(e) => setQuery(e.target.value)}
-                className="w-[100%] rounded  outline-none dark:text-white dark:bg-gray-700 dark:border-gray-600"
-              />
-              <BsSearch className="ml-2 dark:bg-white-200 rounded text-center w-[20px] h-[20px]" />
-            </span>
+            <SearchBar />
           </div>
           <li className="nav-item">
             <NavLink

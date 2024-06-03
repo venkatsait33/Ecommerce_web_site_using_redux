@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, getProducts } from "../redux/productReducer/action";
 import ProductCard from "./ProductCard";
 import { useLocation, useParams, useSearchParams } from "react-router-dom";
-import Pagination from "./Pagination";
-import { addToCart } from "../redux/cartReducer/action";
+
 
 function ProductList() {
   const dispatch = useDispatch();
@@ -12,10 +11,9 @@ function ProductList() {
   const products = useSelector((store) => store.productReducer.products);
   const totalItems = useSelector((store) => store.productReducer.totalItems);
   const [searchParams] = useSearchParams();
-
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
-  console.log(products);
+  //console.log(products);
 
   useEffect(() => {
     dispatch(fetchProducts(currentPage, itemsPerPage));
@@ -52,7 +50,7 @@ function ProductList() {
   }
 
   return (
-    <div className="product-list p-4 h-full">
+    <div className="h-full p-4 product-list">
       <div className=" grid ml-5 items-center justify-center w-[95%] grid-cols-2 gap-3 bg-white tablet:grid-cols-3 laptop:grid-cols-4 dark:bg-gray-900">
         {/* we use and operator to show that if the data is passed from the server or not. if the data is not present it will shows the blank products */}
         {products &&
@@ -69,11 +67,11 @@ function ProductList() {
             );
           })}
       </div>
-      <div className="pagination-controls mt-4 flex flex-row justify-center  items-center">
+      <div className="flex flex-row items-center justify-center mt-4 pagination-controls">
         <button
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
-          className="bg-gray-500 text-white px-4 py-2 mr-2 rounded"
+          className="px-4 py-2 mr-2 text-white bg-gray-500 rounded"
         >
           Previous
         </button>
@@ -83,7 +81,7 @@ function ProductList() {
         <button
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
-          className="bg-gray-500 text-white px-4 py-2 ml-2 rounded"
+          className="px-4 py-2 ml-2 text-white bg-gray-500 rounded"
         >
           Next
         </button>
