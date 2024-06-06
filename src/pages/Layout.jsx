@@ -17,7 +17,7 @@ const Layout = () => {
   if (!Array.isArray(products) || products.length === 0) {
     return <div>Loading...</div>; // or some error message
   }
-  
+
   const divStyle = {
     display: "flex",
     alignItems: "center",
@@ -27,7 +27,7 @@ const Layout = () => {
 
   const responsiveSettings = [
     {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 560 },
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -104,9 +104,9 @@ const Layout = () => {
         </h2>
         <Slide slidesToScroll={1} slidesToShow={2} indicators={true}>
           {productCategoryImages.map((slideImage, index) => (
-            <div key={index}>
+            <div key={index} className="">
               <div
-                className="w-[350px] h-[500px] items-center"
+                className="w-[380px] h-[550px] items-center"
                 style={{
                   ...divStyle,
                   backgroundImage: `url(${slideImage.url})`,
@@ -126,10 +126,17 @@ const Layout = () => {
           slidesToShow={2}
           indicators={true}
           responsive={responsiveSettings}
+          s
         >
           {products.map((element) => {
             return (
-              <ProductCard key={element.id} {...element} showButtons={false} />
+              <div key={element.id}>
+                <ProductCard
+                  key={element.id}
+                  {...element}
+                  showButtons={false}
+                />
+              </div>
             );
           })}{" "}
         </Slide>

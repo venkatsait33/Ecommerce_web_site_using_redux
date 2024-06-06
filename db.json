@@ -7,7 +7,10 @@
       "category": "sai",
       "gender": "",
       "price": 1112,
-      "id": 33
+      "id": 33,
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "color": "white",
+      "rating": 4.5
     },
     {
       "name": "men shorts",
@@ -16,7 +19,10 @@
       "category": "shorts",
       "gender": "male",
       "price": 899,
-      "id": 34
+      "id": 34,
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "color": "black",
+      "rating": 4.5
     },
     {
       "name": "SPARX Mens",
@@ -25,7 +31,10 @@
       "category": "footwear",
       "gender": "male",
       "price": 649,
-      "id": 40
+      "id": 40,
+      "sizes": ["S", "M", "L"],
+      "color": "white",
+      "rating": 4.2
     },
     {
       "name": "Centrino Mens 3211 Casual",
@@ -34,7 +43,10 @@
       "category": "footwear",
       "gender": "",
       "price": 499,
-      "id": 41
+      "id": 41,
+      "sizes": ["S", "XL", "XXL"],
+      "color": "white",
+      "rating": 4.5
     },
     {
       "name": "Allen Solly Men's Regular Fit Polo",
@@ -43,7 +55,10 @@
       "category": "t-shirt",
       "gender": "male",
       "price": 649,
-      "id": 42
+      "id": 42,
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "color": "white",
+      "rating": 2.5
     },
     {
       "name": "Spykar Slim Fit Black Jeans for Men - Mid Rise",
@@ -52,7 +67,10 @@
       "category": "jeans",
       "gender": "male",
       "price": 1439,
-      "id": 43
+      "id": 43,
+      "sizes": ["S", "M", "L", "XL"],
+      "color": "white",
+      "rating": 4.6
     },
     {
       "name": "BIBA Women Rayon Regular Kurta",
@@ -61,7 +79,10 @@
       "category": "womenTop",
       "gender": "female",
       "price": 799,
-      "id": 44
+      "id": 44,
+      "sizes": ["L", "XL", "XXL"],
+      "color": "white",
+      "rating": 3.5
     },
     {
       "name": "W for Woman Viscose",
@@ -70,7 +91,10 @@
       "category": "salwar",
       "gender": "female",
       "price": 1918,
-      "id": 45
+      "id": 45,
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "color": "white",
+      "rating": 4.5
     }
   ]
 }

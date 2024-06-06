@@ -90,7 +90,7 @@ const SearchBar = () => {
         </span>
       </div>
       {showSuggestions && query.length > 0 && (
-        <ul className="absolute w-full mt-1 bg-white border border-gray-300 rounded">
+        <ul className="absolute w-[50%] mt-1 bg-white border border-gray-300 rounded">
           {suggestions.length > 0 ? (
             suggestions.map((suggestion, index) => (
               <li

@@ -1,0 +1,230 @@
+-> Provider function is used to pass the state data through out the app from the data stored in the redux store .
+
+-> PersistGate function is used to reterive (state or data) saved the data in the localStorage from the browser.
+
+--main.jsx
+<Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <BrowserRouter>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>
+
+
+STEP:1 
+
+npm i redux react-redux redux-persist
+
+-> create a store using the createStore or legacy_createStore.
+-> create a appReducer to add reducers to receive or send data through it. if there is more than one reducer we use combaineReducer to add more reducers to assign the reducers to appReducers.
+
+-> we use applyMiddleware(think). 
+->Redux middleware provides a third-party extension point between dispatching an action, and the moment it reaches the reducer. People use Redux middleware for logging, crash reporting, talking to an asynchronous API, routing, and more.
+
+-> if we want store the state in the localStorage we use the extension called redux-persist.
+-> The primary purpose of Redux Persist is to persist the Redux store between sessions, ensuring that the application's state is saved and can be reloaded even after the app is restarted or the page is refreshed.
+
+example:
+import { legacy_createStore, applyMiddleware } from "redux";
+import { thunk } from "redux-thunk";
+import storage from "redux-persist/lib/storage";
+import { persistStore, persistReducer } from "redux-persist";
+
+const appReducer = combainReducer{
+authReducer,
+productReducer,
+cartReducer,
+}
+
+
+
+//we create a function with dispatch to perform the action and uses the function and return the dispatch.
+EXAMPLE OF SNIPPET:
+export const logout = () => dispatch => {  
+  persistor.purge().then(() => {
+    dispatch({ type: LOGOUT });
+  }) 
+};
+
+
+// this is used to clear the state in localStorage when click on action LOGOUT,
+export const rootReducer = (state, action) => {
+  if (action.type === LOGOUT) {
+    state = undefined;
+  }
+  return appReducer(state, action);
+};
+
+
+// this function is to store the state in the localStorage of the browser and what are reducers want to store in the browser.
+
+const persistConfig = {
+key:'root',
+storage,
+whileList:['authReducer','cartReducer'],}
+
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+
+export const store = legace_createStore(persistReducer, applyMiddlewarw(thunk));
+
+
+export const persistor = persistStore(store);
+
+
+we use the useSelector hook from react-redux to retrieve the data from the store the data stored in the reducers in the store.
+
+
+
+STEP-2
+
+-> create a action file to store the action to perform using the redux export all actions.
+
+EXAMPLE:
+export const LOGIN_REQUEST = "LOGIN_REQUEST";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGOUT = "LOGOUT";
+
+STEP-3
+
+-> create action file and reducer as required to perform reducer operations .
+
+STEP-4
+
+-> in this, create a function with name to perform the action and passes the data as props by using the dispatch function provided by react-redux and export the dispatch function to retrieve or pass the data from the components to be used.
+-> we use dispatch as function and in function we use the type as a action to perform the actions from the actionTypes.js.
+-> we return the all the functions.
+-> in the return function we use dispatch as function in function we use the action type to perform and payload to send the data from the api or any other data from the response.
+
+EXAMPLE: 
+
+import { persistor } from "../store";
+
+export const login = (userData) => (dispatch) => {
+  dispatch({ type: LOGIN_REQUEST });
+  return axios
+    .post("https://reqres.in/api/login", userData)
+    .then((response) => {
+      console.log(response);
+      dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+    })
+    .catch((error) => {
+      dispatch({ type: LOGIN_FAILURE, payload: error.message });
+    });
+};
+
+export const logout = () => dispatch => {
+  
+  persistor.purge().then(() => {
+    dispatch({ type: LOGOUT });
+  })
+ 
+};
+
+
+STEP-5
+
+-> in the reducer we create a const initalState values to pass and store the values
+-> create a reducer with state,type and payload. 
+-> state is the inistalState as per required to store the data.
+-> uses the switch and default cases to perform operations and return the data to state.
+-> uses switch function and pass the value as (type) and create a function of case to perform the action and return the value to state by using the payload passed. the data is passed as dispatch to the action.
+-> in the case is a function, we import the action type from actionType.js file to perform the action and return the values to store.
+
+EXAMPLE:
+
+const initialState = {
+  isAuth: false,
+  isLoading: false,
+  isError: false,
+  token: "",
+  errorMessage: "",
+  user: null,
+};
+
+export const reducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case LOGIN_REQUEST:
+      return { ...state, isLoading: true, isError: false };
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isAuth: true,
+        isError: false,
+        token: payload,
+        user: payload,
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        isAuth: false,
+        errorMessage: payload,
+        user: null,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        isAuth: false,
+        isError: false,
+        user: null,
+      };
+
+    default:
+      return state;
+  }
+};
+
+
+STEP-6
+
+import { useDispatch, useSelector } from "react-redux";
+
+-> we use useSelector function hook to retrieve the data from the store passed from main.js file by the Provider function through out the app.
+
+->  const auth = useSelector((store) => store.authReducer.isAuth);
+
+-> we use the specific reducer to retrieve the data and specific state value from the reducer to retrieve the state value stored in the state.
+-> after retrieving the data assign the state value to the const value to store and use the 
+object in the code as per required.
+
+->  const handleLogin = (e) => {
+    e.preventDefault();
+
+    let userData = {
+      email,
+      password,
+    };
+	dispatch(login(userData))
+      .then(() => {
+        navigate("/");
+        toast.success("Login Successfully");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+
+    setEmail("");
+    setPassword("");
+  };
+
+-> dispatch is a function,where the reducer is imported from the reducer.js file and pass the data as object as function (as payload)
+
+
+
+
+
+
+
+
+
+
+
+

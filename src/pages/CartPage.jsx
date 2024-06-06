@@ -6,7 +6,8 @@ import {
   deleteFromCart,
   increaseQuantity,
 } from "../redux/cartReducer/action";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { CiShoppingCart } from "react-icons/ci";
 
 const CartPage = () => {
   const cartItems = useSelector((store) => store.cartReducer.cartItems);
@@ -39,84 +40,87 @@ const CartPage = () => {
   };
 
   return (
-    <div className="h-full p-4 mx-auto overflow-y-auto cart-page">
-      <h2 className="text-2xl font-bold ">Cart</h2>
-      {cartItems.length === 0 ? (
-        <p className="h-[30vh]">Your cart is empty</p>
-      ) : (
-        <div className="flex flex-col items-center justify-between gap-3 mt-4">
-          {cartItems.map((item, index) => (
-            <div key={index} className="flex border rounded-lg cart-item">
-              <div className="flex">
-                <div className="w-[30%] p-2 flex flex-col justify-between">
-                  <img
-                    src={item.image}
-                    alt=""
-                    className="w-[50%] rounded p-2 object-cover"
-                  />
-                </div>
+    <>
+      <div className="w-full h-full p-4 mx-auto overflow-y-auto border-2 rounded cart-page border-b-yellow-400">
+        <h2 className="text-2xl font-bold ">Cart</h2>
+        {cartItems.length === 0 ? (
+          <p className="h-[30vh]">Your cart is empty</p>
+        ) : (
+          <div className="flex flex-col gap-3 mt-4">
+            {cartItems.map((item, index) => (
+              <div key={index} className="cart-item">
+                <div className="flex gap-2 p-2 border-2 rounded-md shadow shadow-orange-400 max-[560px]:flex-col">
+                  <div className="flex-1">
+                    <img
+                      src={item.image}
+                      alt=""
+                      className="w-[50%]  max-[1080px]:w-[50%] rounded p-2 object-cover"
+                    />
+                  </div>
 
-                <div className="w-[40%] p-2 flex flex-col justify-between">
-                  <h3 className="text-xl font-bold">
-                    productBrand:{item.brand}
-                  </h3>
-                  <h3 className="text-xl font-semibold">
-                    productName:
-                    {item.name}
-                  </h3>
-                  <p>category:{item.category}</p>
-                  <p>gender:{item.gender}</p>
-                  <p className="text-lg font-semibold">${item.price}</p>
-                </div>
+                  <div className="flex flex-col justify-between flex-1 gap-1 p-2">
+                    <Link to={`/product/${item.id}`}>
+                      <h3 className="text-xl font-semibold">{item.name} </h3>
+                    </Link>
 
-                <div className="w-[20%] p-2 flex flex-col justify-between">
-                  <p>Quantity: {item.quantity}</p>
-                  <div className="flex mt-2 space-x-2">
+                    <p>brand:&nbsp;{item.brand}</p>
+                    <p>color: &nbsp;{item.color}</p>
+                    <p className="text-base ">size: &nbsp;{item.sizes}</p>
+                    <p>Quantity:&nbsp;{item.quantity}</p>
+                    <div className="flex flex-col justify-between">
+                      <div className="flex mt-2 space-x-2">
+                        <button
+                          onClick={() => handleDecreaseQuantity(item.id)}
+                          className="px-4 py-2 text-white bg-red-500 rounded"
+                        >
+                          -
+                        </button>
+                        <button
+                          onClick={() => handleIncreaseQuantity(item.id)}
+                          className="px-4 py-2 text-white bg-green-500 rounded"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
                     <button
-                      onClick={() => handleDecreaseQuantity(item.id)}
-                      className="px-4 py-2 text-white bg-red-500 rounded"
+                      onClick={() => handleDeleteFromCart(item.id)}
+                      className="items-center w-[50%] mt-2 px-4 py-2 text-white bg-red-500 rounded"
                     >
-                      -
-                    </button>
-                    <button
-                      onClick={() => handleIncreaseQuantity(item.id)}
-                      className="px-4 py-2 text-white bg-green-500 rounded"
-                    >
-                      +
+                      Delete
                     </button>
                   </div>
-                </div>
-                <div className="w-[15%] p-2 flex flex-col justify-between items-center mx-auto">
-                  <button
-                    onClick={() => handleDeleteFromCart(item.id)}
-                    className="items-center p-2 text-white bg-red-500 rounded"
-                  >
-                    Delete
-                  </button>
+                  <h2 className="flex-wrap mt-2 text-xl text-red-500">
+                    ${item.price}
+                  </h2>
                 </div>
               </div>
-            </div>
-          ))}
-          <div className="w-[30%] p-2 flex flex-col justify-between mx-auto">
-            <h3 className="text-xl font-bold">
-              Total: ${totalAmount.toFixed(2)}
-            </h3>
-            <button
-              onClick={handleClearCart}
-              className="px-4 py-2 mt-2 text-white bg-red-500 rounded"
-            >
-              Clear Cart
-            </button>
-            <button
-              onClick={handleCheckout}
-              className="px-4 py-2 mt-2 text-white bg-green-500 rounded"
-            >
-              Checkout
-            </button>
+            ))}
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+      <div className="flex flex-col justify-between p-2 mx-auto">
+        <p className="mt-2 text-xl font-bold ">Shipping Free</p>
+        <p className="mt-2 text-xl font-bold ">
+          Total: ${totalAmount.toFixed(2)}
+        </p>{" "}
+        <button
+          onClick={handleClearCart}
+          className="items-center w-[30%] mt-2 px-4 py-2 text-white bg-red-500 rounded"
+        >
+          Clear Cart
+        </button>
+        <button
+          onClick={handleCheckout}
+          className="items-center w-[30%] mt-2 px-4 py-2 text-white bg-orange-500 rounded flex justify-between"
+        >
+          Checkout{" "}
+          <span>
+            <CiShoppingCart size={24} className="dark:text-white" />
+          </span>
+        </button>
+      </div>
+    </>
   );
 };
 

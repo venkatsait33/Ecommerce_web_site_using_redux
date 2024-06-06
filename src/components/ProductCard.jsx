@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Add_Delete_Btn from "./Add_Delete_Btn";
 import { addToCart } from "../redux/cartReducer/action";
 import { toast } from "react-toastify";
+import RenderStars from "./RenderStars";
 function ProductCard({
   brand,
   category,
@@ -13,6 +14,7 @@ function ProductCard({
   price,
   id,
   showButtons,
+  rating,
 }) {
   const dispatch = useDispatch();
 
@@ -24,7 +26,7 @@ function ProductCard({
   return (
     <>
       <div>
-        <div className="w-full h-full gap-2 p-2 mx-auto text-center transition-all bg-white border border-gray-300 border-solid rounded-lg shadow-md cursor-pointer  hover:shadow-lg dark:bg-gray-900">
+        <div className="w-full h-full gap-2 p-2 mx-auto text-center transition-all bg-white border border-gray-300 border-solid rounded-lg shadow-md cursor-pointer hover:shadow-lg dark:bg-gray-900">
           <div className="flex items-center justify-center text-center ">
             <Link to={`/product/${id}`}>
               <img
@@ -33,6 +35,7 @@ function ProductCard({
                 className="max-w-[80px]  mx-auto rounded-lg max-h-[100px]"
               />
               <h2 className="text-xl font-semibold">{name}</h2>
+              <p><RenderStars rating={rating} /></p>
 
               <h3 className="font-medium text-gray-500 dark:text-white">
                 Price: $ {price}
