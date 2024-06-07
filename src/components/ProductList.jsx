@@ -51,7 +51,7 @@ function ProductList() {
 
   return (
     <div className="h-full p-4 product-list">
-      <div className=" grid ml-5 items-center justify-center w-[95%] grid-cols-2 gap-3 bg-white tablet:grid-cols-3 laptop:grid-cols-4 dark:bg-gray-900">
+      <div className=" grid ml-5 items-center justify-center w-[95%]  xl-[786px]:grid-cols-3 gap-3 bg-white dark:bg-gray-900">
         {/* we use and operator to show that if the data is passed from the server or not. if the data is not present it will shows the blank products */}
         {products &&
           products.map((element) => {

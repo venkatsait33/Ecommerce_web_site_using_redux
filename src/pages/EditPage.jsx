@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { editProduct } from "../redux/productReducer/action";
 import { IoMdArrowBack } from "react-icons/io";
 import { toast } from "react-toastify";
+import TabTitle from "../components/TabTitle";
 
 export default function EditPage() {
   let { id } = useParams();
@@ -48,6 +49,8 @@ export default function EditPage() {
   const handleBack = useCallback(() => {
     navigate(-1);
   }, [navigate]);
+
+   TabTitle("Edit-page");
 
   return (
     <div className="flex h-full p-4 mx-auto border border-gray-300 border-solid rounded-lg dark:border-white max-[560px]:flex-col max-[560px]:w-[100%]">

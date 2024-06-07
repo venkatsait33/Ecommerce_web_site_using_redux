@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/authReducer/action";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import TabTitle from "../components/TabTitle";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -38,6 +39,7 @@ function Login() {
     setEmail("");
     setPassword("");
   };
+   TabTitle("Login");
 
   return (
     <div className="h-[70vh] flex items-center justify-center">

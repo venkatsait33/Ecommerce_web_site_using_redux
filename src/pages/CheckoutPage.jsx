@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../redux/cartReducer/action";
+import TabTitle from "../components/TabTitle";
+import emptyCart from "../assets/empty-cart.png";
 
 const CheckoutPage = () => {
   const cartItems = useSelector((store) => store.cartReducer.cartItems);
@@ -14,12 +16,16 @@ const CheckoutPage = () => {
     alert("Checkout successful!");
     dispatch(clearCart());
   };
+  TabTitle("Checkout");
 
   return (
     <div className="z-10 w-full h-screen p-4 mx-auto overflow-y-auto checkout-page">
       <h2 className="pb-2 mb-4 text-2xl font-semibold border-b-2">CheckOut</h2>
       {cartItems.length === 0 ? (
-        <p className="text-2xl font-semibold">Your cart is empty</p>
+        <div>
+          <p className="text-2xl font-semibold">Your cart is empty</p>
+          <img className="w-[50%] mx-auto" src={emptyCart} alt="" />
+        </div>
       ) : (
         <div className="flex items-center flex-col justify-between text-center w-[80%] mx-auto max-[560px]:flex-col ">
           {cartItems.map((item) => (

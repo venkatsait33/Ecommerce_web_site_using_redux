@@ -57,7 +57,7 @@ const SideBar = () => {
   }, [gender, category, order]);
   //console.log(category, gender);
   return (
-    <div className="p-4 mx-auto rounded-md shadow  max-[668px]:hidden dark:bg-gray-900 bg-white z-0 ">
+    <div className="z-0 p-4 mx-auto bg-white rounded-md shadow dark:bg-gray-900 ">
       <h3 className="font-medium text-center dark:text-white">
         Filter by Gender
       </h3>

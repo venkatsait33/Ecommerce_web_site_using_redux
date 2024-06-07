@@ -76,7 +76,7 @@ function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="w-full border-b-2 border-gray-300 shadow-xl navbar dark:bg-gray-900 dark:text-white">
+    <nav className="w-full border-b-2 border-gray-300 navbar dark:bg-gray-900 dark:text-white">
       <div className="navbar-container">
         <Link to="/">
           <h1 className="text-2xl font-bold dark:text-white navbar-brand">

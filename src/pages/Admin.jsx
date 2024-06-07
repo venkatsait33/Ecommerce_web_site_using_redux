@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../redux/productReducer/action";
 import { toast } from "react-toastify";
+import TabTitle from "../components/TabTitle";
 
 const initialState = {
   name: "",
@@ -12,9 +13,12 @@ const initialState = {
   price: "",
 };
 
+
+
 function Admin() {
   const [product, setProduct] = useState(initialState);
   const dispatch = useDispatch();
+   TabTitle("Admin-Page");
 
   const handleChange = (e) => {
     const { name, value } = e.target;

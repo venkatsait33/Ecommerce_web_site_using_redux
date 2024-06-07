@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import { Slide } from "react-slideshow-image";
-import ProductList from "../components/ProductList";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../redux/productReducer/action";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 const Layout = () => {
-  const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const products = useSelector((store) => store.productReducer.products);
 
@@ -18,13 +16,6 @@ const Layout = () => {
     return <div>Loading...</div>; // or some error message
   }
 
-  const divStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundSize: "cover",
-  };
-
   const responsiveSettings = [
     {
       breakpoint: { max: 3000, min: 560 },
@@ -35,6 +26,18 @@ const Layout = () => {
         dots: true,
       },
     },
+  ];
+  const responsiveSettings2 = [
+    {
+      breakpoint: 560,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: true,
+      },
+    },
+    
   ];
 
   const slideImages = [
@@ -76,7 +79,7 @@ const Layout = () => {
   ];
 
   return (
-    <div className="relative ">
+    <div className="relative layout">
       <div>
         <Slide
           slidesToScroll={1}
@@ -85,14 +88,10 @@ const Layout = () => {
           responsive={responsiveSettings}
         >
           {slideImages.map((slideImage, index) => (
-            <div key={index}>
-              <div
-                style={{
-                  ...divStyle,
-                  height: "400px",
-                  backgroundImage: `url(${slideImage.url})`,
-                }}
-              ></div>
+            <div key={index} className="w-[100%] items-center ">
+              <div>
+                <img src={slideImage.url} className="w-[100%]" alt="" />
+              </div>
             </div>
           ))}
         </Slide>
@@ -102,35 +101,28 @@ const Layout = () => {
         <h2 className="p-2 mb-2 text-xl font-semibold text-center bg-orange-400 rounded shadow-sm">
           Shop by category
         </h2>
-        <Slide slidesToScroll={1} slidesToShow={2} indicators={true}>
+        <Slide indicators={true} responsive={responsiveSettings2}>
           {productCategoryImages.map((slideImage, index) => (
             <div key={index} className="">
-              <div
-                className="w-[380px] h-[550px] items-center"
-                style={{
-                  ...divStyle,
-                  backgroundImage: `url(${slideImage.url})`,
-                }}
-              ></div>
+              <div className="w-[380px] h-[550px] items-center">
+                <img src={slideImage.url} alt="" />
+              </div>
             </div>
           ))}
         </Slide>
       </div>
 
-      <div className="mt-2 mb-2 bg-green-300 rounded shadow-sm ">
-        <h2 className="p-2 mb-2 text-xl font-semibold text-center bg-green-400 rounded shadow-sm">
+      <div className="mt-2 mb-2 bg-green-100 rounded ">
+        <h2 className="p-2 mb-2 text-xl font-semibold text-center rounded ">
           product Available
         </h2>
-        <Slide
-          slidesToScroll={2}
-          slidesToShow={2}
-          indicators={true}
-          responsive={responsiveSettings}
-          s
-        >
+        <Slide indicators={true} responsive={responsiveSettings2}>
           {products.map((element) => {
             return (
-              <div key={element.id}>
+              <div
+                key={element.id}
+                className="w-[380px] h-[300px] items-center "
+              >
                 <ProductCard
                   key={element.id}
                   {...element}
