@@ -56,7 +56,7 @@ const ProductDetails = () => {
               </div>
             </h2>
             <h3 className="font-medium text-gray-500 dark:text-white">
-              Price: ${products.price}
+              Price: &#8377;{products.price}
             </h3>
             <p className="font-medium text-gray-500 dark:text-white">
               Brand: {products.brand}

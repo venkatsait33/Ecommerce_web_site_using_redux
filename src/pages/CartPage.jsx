@@ -44,7 +44,7 @@ const CartPage = () => {
 
   return (
     <>
-      <div className="w-full h-full p-4 mx-auto overflow-y-auto border-2 rounded cart-page border-b-yellow-400">
+      <div className="w-full h-full p-4 mx-auto overflow-y-auto border-2 rounded cart-page ">
         <h2 className="pb-2 mb-4 text-2xl font-semibold border-b-2">Cart</h2>
         {cartItems.length === 0 ? (
           <div>
@@ -97,7 +97,7 @@ const CartPage = () => {
                     </button>
                   </div>
                   <h2 className="flex-wrap mt-2 text-xl text-red-500">
-                    ${item.price}
+                    &#8377;{item.price}
                   </h2>
                 </div>
               </div>
@@ -111,7 +111,7 @@ const CartPage = () => {
         <div className="flex flex-col justify-between p-2 mx-auto">
           <p className="mt-2 text-xl font-bold ">Shipping Free</p>
           <p className="mt-2 text-xl font-bold ">
-            Total: ${totalAmount.toFixed(2)}
+            Total: &#8377;{totalAmount.toFixed(2)}
           </p>{" "}
           <button
             onClick={handleClearCart}

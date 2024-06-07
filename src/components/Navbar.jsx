@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { getProducts } from "../redux/productReducer/action";
 import { logout } from "../redux/authReducer/action";
-import { BsSearch } from "react-icons/bs";
 import { IoMoon } from "react-icons/io5";
 import { FaBars, FaSun, FaTimes } from "react-icons/fa";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { CiShoppingCart } from "react-icons/ci";
 import { toast } from "react-toastify";
 import SearchBar from "./SearchBar";
+import logo from "../assets/isometric-laptop-with-shopping-cart-keypad.png";
 
 function Navbar() {
   const [query, setQuery] = useState("");
@@ -80,11 +80,7 @@ function Navbar() {
       <div className="navbar-container">
         <Link to="/">
           <div className="flex flex-row items-center">
-            <img
-              src="/src/assets/isometric-laptop-with-shopping-cart-keypad.png"
-              alt=""
-              className="w-[50px] h-[50px] mr-2 solid"
-            />
+            <img src={logo} alt="" className="w-[50px] h-[50px] mr-2 solid" />
             &nbsp;
             <h1 className="text-xl font-bold dark:text-white navbar-brand">
               Ecom-Cart
