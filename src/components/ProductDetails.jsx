@@ -14,19 +14,16 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const products = useSelector((store) => store.productReducer.products);
   const navigate = useNavigate();
-  const [selectedSize, setSelectedSize] = useState("");
 
   const handleBack = useCallback(() => {
     navigate(-2);
   }, [navigate]);
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ ...products, size: selectedSize }));
+    dispatch(addToCart(products));
     toast.success("Added to cart successfully!");
   };
-  const handleSizeChange = (e) => {
-    setSelectedSize(e.target.value);
-  };
+
   useEffect(() => {
     dispatch(fetchProductDetails(id));
   }, [id]);
@@ -70,32 +67,13 @@ const ProductDetails = () => {
             <p className="font-medium text-gray-500 dark:text-white">
               Gender: {products.gender}
             </p>
-            <div className="mb-4 ">
-              <label>Select size</label>
-              <select
-                value={selectedSize}
-                onChange={handleSizeChange}
-                className="p-2 border rounded dark:text-black"
-              >
-                <option value="" className=" dark:text-black">
-                  Select a size
-                </option>
-                {products.sizes &&
-                  products.sizes.map((size) => (
-                    <option
-                      className=" dark:text-black"
-                      key={size}
-                      value={size}
-                    >
-                      {size}
-                    </option>
-                  ))}
-              </select>
-            </div>
+            <p className="font-medium text-gray-500 dark:text-white">
+              Color: {products.color}
+            </p>
+
             <button
               onClick={handleAddToCart}
               className="px-4 py-2 mx-auto mt-4 text-white bg-blue-500 rounded dark:bg-blue-400 dark:text-black"
-              disabled={!selectedSize}
             >
               Add to Cart
             </button>

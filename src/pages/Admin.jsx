@@ -11,14 +11,14 @@ const initialState = {
   category: "",
   gender: "",
   price: "",
+  rating: "",
+  color: "",
 };
-
-
 
 function Admin() {
   const [product, setProduct] = useState(initialState);
   const dispatch = useDispatch();
-   TabTitle("Admin-Page");
+  TabTitle("Admin-Page");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -84,6 +84,15 @@ function Admin() {
             name="price"
             required
           />
+          <input
+            type="text"
+            placeholder="product Color"
+            className="w-[90%] rounded p-2 placeholder:font-black"
+            onChange={(e) => handleChange(e)}
+            value={product.color}
+            name="color"
+            required
+          />
           <select
             className="w-[90%] rounded p-2 placeholder:font-black dark:text-black"
             onChange={(e) => handleChange(e)}
@@ -137,6 +146,17 @@ function Admin() {
               kid
             </option>
           </select>
+
+          <input
+            type="text"
+            placeholder="Product Rating"
+            className="w-[90%] rounded p-2 placeholder:font-black"
+            onChange={(e) => handleChange(e)}
+            value={product.rating}
+            name="rating"
+            required
+          />
+
           <button
             className="w-[90%] bg-[#0a2b9f] text-white rounded p-2 cursor-pointer hover:bg-[#0a2b9f]/80"
             type="submit"

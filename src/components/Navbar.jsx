@@ -79,9 +79,17 @@ function Navbar() {
     <nav className="w-full border-b-2 border-gray-300 navbar dark:bg-gray-900 dark:text-white">
       <div className="navbar-container">
         <Link to="/">
-          <h1 className="text-2xl font-bold dark:text-white navbar-brand">
-            Product List
-          </h1>
+          <div className="flex flex-row items-center">
+            <img
+              src="/src/assets/isometric-laptop-with-shopping-cart-keypad.png"
+              alt=""
+              className="w-[50px] h-[50px] mr-2 solid"
+            />
+            &nbsp;
+            <h1 className="text-xl font-bold dark:text-white navbar-brand">
+              Ecom-Cart
+            </h1>
+          </div>
         </Link>
         <div className="relative menu-icon">
           <button onClick={toggleMenu} className="text-black dark:text-white">
