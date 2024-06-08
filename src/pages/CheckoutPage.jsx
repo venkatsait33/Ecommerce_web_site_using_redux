@@ -3,18 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../redux/cartReducer/action";
 import TabTitle from "../components/TabTitle";
 import emptyCart from "../assets/empty-cart.png";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutPage = () => {
   const cartItems = useSelector((store) => store.cartReducer.cartItems);
-  const dispatch = useDispatch();
+  
+
   const totalAmount = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
+  const navigate = useNavigate();
   const handleCheckout = () => {
-    // Add your checkout logic here (e.g., payment processing)
-    alert("Checkout successful!");
-    dispatch(clearCart());
+    navigate("/address");
+
   };
   TabTitle("Checkout");
 
@@ -58,7 +60,7 @@ const CheckoutPage = () => {
               onClick={handleCheckout}
               className="px-4 py-2 mt-2 text-white bg-green-500 rounded"
             >
-              Checkout
+              Place order
             </button>
           </div>
         </div>

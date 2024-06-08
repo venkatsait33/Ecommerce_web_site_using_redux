@@ -10,6 +10,8 @@ import Layout from "./Layout";
 import CartPage from "./CartPage";
 import CheckoutPage from "./CheckoutPage";
 import PageNotFound from "./PageNotFound";
+import Address from "./Address";
+import Orders from "./Orders";
 
 function MainRoutes() {
   return (
@@ -36,6 +38,8 @@ function MainRoutes() {
         />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/address" element={<Address />} />
+        <Route path="/orders" element={<Orders />} />
         <Route
           path="/checkout"
           element={

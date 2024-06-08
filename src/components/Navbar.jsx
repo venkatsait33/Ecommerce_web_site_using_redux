@@ -133,17 +133,29 @@ function Navbar() {
           </li>*/}
 
           {auth ? (
-            <li className="nav-item">
-              <NavLink
-                onClick={handleLogout}
-                to="/login"
-                exact
-                activeClassName="active "
-                className="text-black dark:text-white nav-links"
-              >
-                Logout
-              </NavLink>
-            </li>
+            <div className="flex ">
+              <li className="nav-item">
+                <NavLink
+                  to="/orders"
+                  exact
+                  activeClassName="active"
+                  className="text-black dark:text-white nav-links"
+                >
+                  Orders
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  onClick={handleLogout}
+                  to="/login"
+                  exact
+                  activeClassName="active "
+                  className="text-black dark:text-white nav-links"
+                >
+                  Logout
+                </NavLink>
+              </li>
+            </div>
           ) : (
             <li className="nav-item">
               <NavLink
@@ -168,11 +180,11 @@ function Navbar() {
           )}
         </Link>
       </div>
-      <div className="p-1 ml-4">
+      {/*      <div className="p-1 ml-4">
         <Link to="/checkout">
           <MdShoppingCartCheckout size={24} className="dark:text-white" />
         </Link>
-      </div>
+      </div>*/}
       <button
         onClick={() => darkModeHandler()}
         className="p-1 ml-4 bg-gray-500 rounded dark:bg-yellow-500 "

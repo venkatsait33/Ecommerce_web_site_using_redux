@@ -3,8 +3,7 @@ import RenderStars from "./RenderStars";
 
 const Review = () => {
   return (
-    <div className="max-w-[1240px] mx-auto px-4 py-10">
-      <h1 className="text-xl font-bold">Reviews</h1>
+    <div className="w-full px-4 py-5 mx-auto dark:bg-gray-900">
       <div div className="">
         <RenderStars rating={3.5} />
         <p>May 22 2024</p>

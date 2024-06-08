@@ -37,14 +37,14 @@ function Admin() {
   };
 
   return (
-    <div className="flex items-center justify-center h-full mb-2">
-      <div className="w-[70%] p-3 border-[1px] border-solid mx-auto bg-slate-300 rounded-md shadow-sm mt-2">
+    <div className="flex items-center justify-center h-full p-2 m-5 mb-2 dark">
+      <div className="w-[70%] m-5 p-3 border-[1px] border-solid mx-auto bg-slate-100 rounded-md shadow-sm mt-2">
         <form
           action=""
           className="flex flex-col gap-3 justify-center items-center p-3 w-[90%] mx-auto"
           onSubmit={handleSubmit}
         >
-          <h1 className="mt-2 text-xl font-bold text-center dark:text-black">
+          <h1 className="mt-2 text-xl font-bold text-center dark:text-black ">
             Add Product
           </h1>
           <input
@@ -94,55 +94,55 @@ function Admin() {
             required
           />
           <select
-            className="w-[90%] rounded p-2 placeholder:font-black dark:text-black"
+            className="w-[90%] rounded p-2 placeholder:font-black  text-white"
             onChange={(e) => handleChange(e)}
             value={product.category}
             name="category"
             required
           >
-            <option value="" disabled selected className="dark:text-black">
+            <option value="" disabled selected className="text-white ">
               Category
             </option>
-            <option value="t-shirt" className="dark:text-black">
+            <option value="t-shirt" className="text-white ">
               t-shirt
             </option>
-            <option value="jeans" className="dark:text-black">
+            <option value="jeans" className="text-white ">
               jeans
             </option>
-            <option value="shoes" className="dark:text-black">
+            <option value="shoes" className="text-white ">
               shoes
             </option>
-            <option value="shorts" className="dark:text-black">
+            <option value="shorts" className="text-white ">
               shorts
             </option>
-            <option value="footwear" className="dark:text-black">
+            <option value="footwear" className="text-white ">
               footwear
             </option>
-            <option value="womenTop" className="dark:text-black">
+            <option value="womenTop" className="text-white ">
               womenTop
             </option>
-            <option value="salwar" className="dark:text-black">
+            <option value="salwar" className="text-white ">
               salwar
             </option>
           </select>
 
           <select
-            className="w-[90%] rounded p-2 placeholder:font-black dark:text-black"
+            className="w-[90%] rounded p-2 placeholder:font-black  text-white"
             onChange={(e) => handleChange(e)}
             value={product.gender}
             name="gender"
             required
           >
-            <option value="" disabled selected className="dark:text-black">
+            <option value="" disabled selected className="text-white ">
               Gender
             </option>
-            <option value="male" className="dark:text-black">
+            <option value="male" className="text-white ">
               male
             </option>
-            <option value="female" className="dark:text-black">
+            <option value="female" className="text-white ">
               female
             </option>
-            <option value="kid" className="dark:text-black">
+            <option value="kid" className="text-white ">
               kid
             </option>
           </select>

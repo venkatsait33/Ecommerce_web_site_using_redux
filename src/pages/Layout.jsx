@@ -37,7 +37,6 @@ const Layout = () => {
         dots: true,
       },
     },
-    
   ];
 
   const slideImages = [
@@ -103,25 +102,28 @@ const Layout = () => {
         </h2>
         <Slide indicators={true} responsive={responsiveSettings2}>
           {productCategoryImages.map((slideImage, index) => (
-            <div key={index} className="">
-              <div className="w-[380px] h-[550px] items-center">
+            <div key={index}>
+              <div className="w-[380px] h-[550px] max-[786px]:w-full items-center">
                 <img src={slideImage.url} alt="" />
+                <h1 className="text-xl font-semibold text-center bg-orange-400 rounded shadow-sm">
+                  {slideImage.caption}
+                </h1>
               </div>
             </div>
           ))}
         </Slide>
       </div>
 
-      <div className="mt-2 mb-2 bg-green-100 rounded ">
-        <h2 className="p-2 mb-2 text-xl font-semibold text-center rounded ">
-          product Available
+      <div className="mt-2 mb-2 bg-green-100 border-none rounded ">
+        <h2 className="p-2 mb-2 text-xl font-semibold text-center bg-green-300 rounded ">
+          Products Available
         </h2>
         <Slide indicators={true} responsive={responsiveSettings2}>
           {products.map((element) => {
             return (
               <div
                 key={element.id}
-                className="w-[380px] h-[300px] items-center "
+                className="w-[400px] h-[300px]  text-center"
               >
                 <ProductCard
                   key={element.id}

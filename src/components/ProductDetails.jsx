@@ -81,7 +81,8 @@ const ProductDetails = () => {
         </div>
       </div>
       <Details />
-      <div className="grid grid-cols-2 w-full p-4 mx-auto max-[560px]:grid-cols-1 max-[560px]:w-[100%]">
+      <h1 className="text-xl text-center dark:bg-gray-900 ">Reviews</h1>
+      <div className="grid grid-cols-2 w-full mx-auto max-[560px]:grid-cols-1 max-[560px]:w-[100%]">
         <Review />
         <Review />
         <Review />

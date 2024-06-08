@@ -4,7 +4,6 @@ import { fetchProducts, getProducts } from "../redux/productReducer/action";
 import ProductCard from "./ProductCard";
 import { useLocation, useParams, useSearchParams } from "react-router-dom";
 
-
 function ProductList() {
   const dispatch = useDispatch();
   const location = useLocation();
@@ -51,7 +50,7 @@ function ProductList() {
 
   return (
     <div className="h-full p-4 product-list">
-      <div className=" grid ml-5 items-center justify-center w-[95%]  xl-[786px]:grid-cols-3 gap-3 bg-white dark:bg-gray-900">
+      <div className=" grid ml-5 items-center justify-center grid-cols-2 w-[95%]  xl-[860px]:grid-cols-3 gap-3 bg-white dark:bg-gray-900 max-[560px]:grid-cols-1">
         {/* we use and operator to show that if the data is passed from the server or not. if the data is not present it will shows the blank products */}
         {products &&
           products.map((element) => {

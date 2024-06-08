@@ -2,7 +2,7 @@ import React from "react";
 
 const Details = () => {
   return (
-    <div className="flex flex-wrap w-full h-full p-5 mx-auto max-[560px]:flex-col max-[560px]:w-[100%] mt-2 dark:text-white dark:bg-gray-900">
+    <div className="flex flex-wrap w-full h-full p-5 mx-auto max-[560px]:flex-col max-[560px]:w-[100%] mt-2 dark:text-white dark:bg-gray-900 ">
       <div className="mb-2">
         <h1 className="mb-2 text-xl font-semibold">Details</h1>
         <p>

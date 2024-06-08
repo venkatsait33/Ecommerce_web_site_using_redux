@@ -26,13 +26,13 @@ function ProductCard({
   return (
     <>
       <div>
-        <div className="w-full h-full gap-2 p-2 mx-auto text-center transition-all border border-gray-200 border-solid rounded-lg shadow cursor-pointer hover:shadow-lg dark:bg-gray-900">
+        <div className="w-full h-full p-2 m-1 mx-auto text-center transition-all border border-gray-100 border-solid rounded-lg shadow cursor-pointer hover:shadow-lg dark:bg-gray-900">
           <div className="flex items-center justify-center text-center ">
             <Link to={`/product/${id}`}>
               <img
                 src={image}
                 alt=""
-                className="max-w-[100px]  mx-auto rounded-lg max-h-[100px]"
+                className="max-w-[200px]  mx-auto rounded-lg max-h-[100px]"
               />
               <h2 className="text-xl font-semibold">{name}</h2>
               <p>
