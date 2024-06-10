@@ -20,6 +20,7 @@ function HomePage() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  
   TabTitle("Home");
   return (
     <>
@@ -40,7 +41,7 @@ function HomePage() {
         <div
           className={`inset-0 z-20 ${
             isSidebarOpen ? "block" : "hidden"
-          } max-[960px]:block transition-transform duration-300`}
+          } xl:block transition-transform duration-300`}
         >
           <SideBar />
         </div>

@@ -1,23 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { getProducts } from "../redux/productReducer/action";
 import { logout } from "../redux/authReducer/action";
 import { IoMoon } from "react-icons/io5";
 import { FaBars, FaSun, FaTimes } from "react-icons/fa";
-import { MdShoppingCartCheckout } from "react-icons/md";
 import { CiShoppingCart } from "react-icons/ci";
 import { toast } from "react-toastify";
 import SearchBar from "./SearchBar";
 import logo from "../assets/isometric-laptop-with-shopping-cart-keypad.png";
 
 function Navbar() {
-  const [query, setQuery] = useState("");
   const auth = useSelector((store) => store.authReducer.isAuth);
   const [dark, setDark] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const cartItems = useSelector((store) => store.cartReducer.cartItems);
-  let ref = useRef();
+  
   const menuRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,20 +33,7 @@ function Navbar() {
     document.body.classList.toggle("dark");
   };
 
-  const paramObj = {
-    params: {
-      q: query,
-    },
-  };
-
-  useEffect(() => {
-    if (ref.current) {
-      clearInterval(ref.current); // Clear the interval
-    }
-    ref.current = setTimeout(() => {
-      dispatch(getProducts(paramObj));
-    }, 1000);
-  }, [query]);
+ 
 
   const handleLogout = () => {
     dispatch(logout());
@@ -139,7 +123,7 @@ function Navbar() {
                   to="/orders"
                   exact
                   activeClassName="active"
-                  className="text-black dark:text-white nav-links"
+                  className="ml-2 text-black dark:text-white nav-links"
                 >
                   Orders
                 </NavLink>

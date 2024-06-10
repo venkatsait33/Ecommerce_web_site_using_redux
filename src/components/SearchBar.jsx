@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  fetchProductDetails,
-  getProducts,
-} from "../redux/productReducer/action";
+import { getProducts } from "../redux/productReducer/action";
 import { BsSearch } from "react-icons/bs";
 
 const SearchBar = () => {
@@ -22,17 +19,17 @@ const SearchBar = () => {
   }, [dispatch]);
 
   useEffect(() => {
-     if (Array.isArray(products) && query.length > 0) {
-       const filteredSuggestions = products.filter((product) =>
-         product.name.toLowerCase().includes(query.toLowerCase())
-       );
+    if (Array.isArray(products) && query.length > 0) {
+      const filteredSuggestions = products.filter((product) =>
+        product.name.toLowerCase().includes(query.toLowerCase())
+      );
 
-       setSuggestions(filteredSuggestions);
-       setShowSuggestions(true);
-     } else {
-       setSuggestions([]);
-       setShowSuggestions(false);
-     }
+      setSuggestions(filteredSuggestions);
+      setShowSuggestions(true);
+    } else {
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
   }, [query, products]);
 
   const handleInputChange = (e) => {
@@ -50,7 +47,7 @@ const SearchBar = () => {
   };
 
   const selectSuggestion = (suggestion) => {
-    setQuery('');
+    setQuery("");
     setSuggestions([]);
     setShowSuggestions(false);
     navigate(`/product/${suggestion.id}`);
