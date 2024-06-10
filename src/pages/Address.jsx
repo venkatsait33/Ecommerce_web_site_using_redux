@@ -15,6 +15,7 @@ const Address = () => {
     (total, item) => total + item.price * item.quantity,
     0
   );
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,7 +24,13 @@ const Address = () => {
 
     const order = {
       id: new Date().getTime(), // Generate a unique id for the order
-      products: cartItems,
+      products: cartItems.map((item) => ({
+        id: item.id,
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+        size: item.size, // Add size to order
+      })),
       address: { name, mobile, address },
       price: totalAmount,
     };
@@ -31,9 +38,9 @@ const Address = () => {
     dispatch(addOrder(order));
     dispatch(clearCart());
     navigate("/orders");
-    toast('order placed successfully')
+    toast("order placed successfully");
   };
-   TabTitle("Address-page");
+  TabTitle("Address-page");
 
   return (
     <div className="p-4 w-[80%] mx-auto m-4">
@@ -47,7 +54,7 @@ const Address = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="block w-full mt-1 border-gray-300 rounded-md dark:text-white"
+            className="block w-full mt-1 bg-gray-100 border-gray-300 rounded-md dark:text-white"
             required
           />
         </div>
@@ -59,7 +66,7 @@ const Address = () => {
             type="text"
             value={mobile}
             onChange={(e) => setMobile(e.target.value)}
-            className="block w-full mt-1 border-gray-300 rounded-md shadow-sm dark:text-white"
+            className="block w-full mt-1 bg-gray-100 border-gray-300 rounded-md shadow-sm dark:text-white"
             required
           />
         </div>
@@ -70,7 +77,7 @@ const Address = () => {
           <textarea
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            className="block w-full mt-1 border-gray-300 rounded-md dark:text-white"
+            className="block w-full mt-1 bg-gray-100 border-gray-300 rounded-md dark:text-white"
             required
           />
         </div>

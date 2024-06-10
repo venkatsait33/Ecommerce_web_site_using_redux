@@ -134,78 +134,21 @@
   ],
   "orders": [
     {
-      "id": 1717842521288,
+      "id": 1717994134568,
       "products": [
         {
-          "name": "Lymio Men Regular Fit T-Shirt ",
-          "image": "https://m.media-amazon.com/images/I/71AEwEupFuL._SY550_.jpg",
-          "brand": "Lymio",
-          "category": "t-shirt",
-          "gender": "male",
-          "price": 349,
-          "rating": "4.5",
           "id": 47,
-          "quantity": 1
+          "name": "Lymio Men Regular Fit T-Shirt ",
+          "quantity": 4,
+          "price": 349
         }
       ],
       "address": {
         "name": "sai",
-        "mobile": "12345678",
-        "address": "111"
+        "mobile": "112222",
+        "address": "asdasf safvcafaf gfe gg g arg ag g aerg aeg egrg ag"
       },
-      "price": 349
-    },
-    {
-      "id": 1717843118711,
-      "products": [
-        {
-          "name": "Lymio Men Regular Fit T-Shirt ",
-          "image": "https://m.media-amazon.com/images/I/71AEwEupFuL._SY550_.jpg",
-          "brand": "Lymio",
-          "category": "t-shirt",
-          "gender": "male",
-          "price": 349,
-          "rating": "4.5",
-          "id": 47,
-          "quantity": 1
-        }
-      ],
-      "address": {
-        "name": "sssq",
-        "mobile": "111",
-        "address": "1112dsad"
-      },
-      "price": 349
-    },
-    {
-      "id": 1717844175510,
-      "products": [
-        {
-          "name": "JEAN TOPS",
-          "image": "https://picsum.photos/200/300",
-          "brand": "TWILLS",
-          "category": "sai",
-          "gender": "",
-          "price": 1112,
-          "id": 33,
-          "sizes": [
-            "S",
-            "M",
-            "L",
-            "XL",
-            "XXL"
-          ],
-          "color": "white",
-          "rating": 4.5,
-          "quantity": 1
-        }
-      ],
-      "address": {
-        "name": "sad",
-        "mobile": "asd",
-        "address": "asfsasd"
-      },
-      "price": 1112
+      "price": 1396
     }
   ]
 }
