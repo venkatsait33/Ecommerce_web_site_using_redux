@@ -37,30 +37,27 @@ const Orders = () => {
           </tr>
         </thead>
         <tbody>
-          {orders.map((order, index) => (
-            <tr key={order.id}>
-              <td className="px-4 py-2 border-b">{index + 1}</td>
-              {order.products.map((product) => (
-                <>
-                  <td className="px-6 py-4 whitespace-nowrap">{product.id}</td>
-                  <td className="px-6 py-4 ">{product.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    {product.quantity}
-                  </td>
-
-                  <td className="px-6 py-4 ">{product.price}</td>
-                </>
-              ))}
-              <td className="px-6 py-4">
-                <p>Name: &nbsp;{order.address.name}</p>
-                <p>Mobile No:&nbsp;{order.address.mobile}</p>
-                <p className="overflow-scroll">
-                  Address:&nbsp;{order.address.address}
-                </p>
-              </td>
-              <td className="px-6 py-4 ">{order.price}</td>
-            </tr>
-          ))}
+          {orders.map((order, index) =>
+            order.products.map((product, productIndex) => (
+              <tr key={product.productId}>
+                <td>
+                  {index + 1}.{productIndex + 1}
+                </td>
+                <td>{product.id}</td>
+                <td>{product.name}</td>
+                <td>{product.quantity}</td>
+                <td>{product.price}</td>
+                <td className="px-6 py-4">
+                  <p>Name: &nbsp;{order.address.name}</p>
+                  <p>Mobile No:&nbsp;{order.address.mobile}</p>
+                  <p className="overflow-scroll">
+                    Address:&nbsp;{order.address.address}
+                  </p>
+                </td>
+                <td className="px-6 py-4 ">{order.price}</td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>
